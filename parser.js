@@ -175,9 +175,8 @@ var restlang = (function() {
 				//End of line!  Cleanup and return
 				if(named) {
 					line = trim(line.substr(idx).replace(/^\s*:/,''));
-					tokens.description = line;
+					if (line.length) tokens.description = line;
 				} else {
-					console.log(line);
 					tokens = {type:'description',name:line};
 				}
 				return tokens;

@@ -39,25 +39,87 @@ There is only one method: GET.  Any other method wont get a response.
 			</textarea>
 		</div>
 
-		<div class="container"><pre id="target"></pre></div>
+		<div class="container">
+			<select id="type">
+				<option id="ojson" value="json" selected="selected">JSON</option>
+				<!-- <option id="oheimdall" value="heimdall">heimdall</option> -->
+				<!-- <option id="ojquery" value="jquery">jquery</option> -->
+				<option id="oragnarok" value="ragnarok" data-src="targets/ragnarok.template.js">ragnarok</option>
+				<!-- <option id="ohtml" value="html">html</option> -->
+			</select>
+			<pre id="target"></pre>
+		</div>
 
 		<script src="parser.js"></script>
 
-		<script src="$.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/min.js/0.2.3/$.min.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 
 		<script type="text/javascript">
 
-			var source = $('#source');
-			var target = $('#target');
+			(function() {
+				"use strict";
 
-			var change = function() { target.innerHTML = JSON.stringify(restlang(source.value),undefined,2); };
+				var parsed = {};
+				var source = $('#source');
+				var target = $('#target');
+				var type = $("#type");
 
-			source.on("keyup",change);
+				var templates = {};
+				var template = null;
+				var typeid = 'json';
 
-			change();
+				var generate = function() {
+					if(typeid==='json') {
+						target.innerHTML = JSON.stringify(parsed,undefined,2);
+					} else {
+						target.innerHTML = template({api:parsed});
+					}
+				};
 
-			
+				//XHR adapted from https://github.com/remy/libraries/blob/master/xhr.js
+				function get(url, callback) {
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', url);
+					xhr.setRequestHeader('Content-Type', 'text/plain');
+					xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					xhr.onload = function () { callback.call(xhr, null, xhr.response); };
+					xhr.onerror = function () { callback.call(xhr, true); };
+					xhr.send();
+					return xhr;
+				};
 
+				var sourceChange = function() { 
+					parsed = restlang(source.value);
+					generate();
+				};
+
+				var targetChange = function() {
+					var id = typeid = type.value;
+					var option = $("#o"+id);
+					var src = option.getAttribute("data-src");
+					if (src) {
+						if (templates[id]) {
+							template = templates[id];
+							generate();
+						} else {
+							get(src,function(err,response){
+								template = templates[id] = _.template(response);
+								generate();
+							});
+						}
+					} else {
+						typeid='json';
+						generate();
+					}
+				};
+
+				source.on("keyup",sourceChange);
+				type.on("change",targetChange);
+
+				sourceChange();
+			})();
 		</script>
 
 	</body>
