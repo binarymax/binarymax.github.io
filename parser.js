@@ -68,7 +68,7 @@ var restlang = (function() {
 		var types = {
 			'/': 'resource',
 			'#': 'method',
-			':': 'route',
+			':': 'param',
 			'?': 'query',
 			'@': 'body',
 			'$': 'file',
@@ -77,8 +77,8 @@ var restlang = (function() {
 			'|': 'response'
 		};
 
-		var requirable = ['route','query','body','file'];
-		var typeable = ['route','query','body','response'];
+		var requirable = ['param','query','body','file'];
+		var typeable = ['param','query','body','response'];
 		var mutable = ['resource','method'];
 		var identity = ['identity','parent'];
 		var authentication = ['authentication']
@@ -241,6 +241,7 @@ var restlang = (function() {
 			var name = tokens.name;
 			var obj = curr.resource[name];
 			if(!obj) obj = curr.resource[name] = {};
+			obj.name = name;
 			if(tokens.description) obj.description = tokens.description;
 
 			stack.unshift({type:'method',obj:obj});
@@ -342,7 +343,7 @@ var restlang = (function() {
 		}
 
 		//Declare method request parameter functions
-		var route = parameter('params',"The route parameter '%s' does not apply to a method.");
+		var param = parameter('params',"The route parameter '%s' does not apply to a method.");
 		var query = parameter('query',"The querystring parameter '%s' does not apply to a method.");
 		var body = parameter('body',"The body parameter '%s' does not apply to a method.");
 		var file = parameter('files',"The file attachment '%s' does not apply to a method.");
@@ -360,7 +361,7 @@ var restlang = (function() {
 			switch(tokens.type) {
 				case 'resource': resource(tokens); break;
 				case 'method': method(tokens); break;
-				case 'route': route(tokens); break;
+				case 'param': param(tokens); break;
 				case 'query': query(tokens); break;
 				case 'body': body(tokens); break;
 				case 'file': file(tokens); break;
