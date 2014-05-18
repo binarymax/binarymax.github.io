@@ -40,17 +40,19 @@ There is only one method: GET.  Any other method wont get a response.
 		</div>
 
 		<div class="container">
-			<select id="type">
+			<select id="type" value="json">
 				<option id="ojson" value="json" selected="selected">JSON</option>
-				<!-- <option id="oheimdall" value="heimdall">heimdall</option> -->
-				<!-- <option id="ojquery" value="jquery">jquery</option> -->
+				<option id="oheimdall" value="heimdall" data-src="targets/heimdall.template.js">heimdall</option>
 				<option id="oragnarok" value="ragnarok" data-src="targets/ragnarok.template.js">ragnarok</option>
+				<!-- <option id="ojquery" value="jquery">jquery</option> -->
 				<!-- <option id="ohtml" value="html">html</option> -->
 			</select>
 			<pre id="target"></pre>
 		</div>
 
 		<script src="parser.js"></script>
+
+		<script src="tools.js"></script>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/min.js/0.2.3/$.min.js"></script>
 
