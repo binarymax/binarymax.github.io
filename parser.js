@@ -9,39 +9,51 @@ var restlang = (function() {
 "use strict";
 
 	var datatypes = [
- 		'binary',
- 		'boolean',
- 		'byte',
- 		'datetime',
- 		'decimal',
- 		'double',
- 		'single',
- 		'float',
- 		'guid',
- 		'int16',
- 		'int32',
- 		'int64',
- 		'int',
- 		'number',
- 		'sbyte',
- 		'string',
- 		'text',
- 		'time',
- 		'datetimeoffset'
+		'binary',
+		'boolean',
+		'byte',
+		'datetime',
+		'decimal',
+		'double',
+		'single',
+		'float',
+		'guid',
+		'int16',
+		'int32',
+		'int64',
+		'int',
+		'number',
+		'sbyte',
+		'string',
+		'text',
+		'date',
+		'time',
+		'datetimeoffset',
+		'object',
+		'array'
 	];
 
 	var rxStringN = /string(\d)+/i;
+
+	var reSymbols = {
+		'/': /^([\/]+)/,
+		'?': /^([\?]+)/,
+		'@': /^([\@]+)/,
+		'|': /^([\|]+)/
+	};
+
 
 	// --------------------------------------------------------------
 	// SyntaxError Exception Object
 	var SyntaxError = function(message,at,text) {
 		this.name = 'SyntaxError';
+		this.message = message;
 		this.at = at;
 		this.text = text;
 	};
 
 	SyntaxError.prototype.toString = function() {
-		return this.name + ' at line number ' + this.at + ': ' + this.text;
+		return this.message + ' :: ' + this.name + ' at line number ' + this.at + ': ' + this.text;
 	};
 
 
@@ -55,6 +67,7 @@ var restlang = (function() {
 			.replace(/\s+$/g,'')
 			.replace(/\n\s+/g,'\n')
 			.replace(/\s+\n/g,'\n')
+			.replace(/\t+/g,' ')
 		);
 	};
 
@@ -79,26 +92,27 @@ var restlang = (function() {
 
 		var requirable = ['param','query','body','file'];
 		var typeable = ['param','query','body','response'];
+		var nestable = ['resource','query','body','response'];
 		var mutable = ['resource','method'];
 		var identity = ['identity','parent'];
-		var authentication = ['authentication']
+		var authentication = ['authentication'];
 
 		var keywords = {
 			'required':requirable,
-			'mutable':mutable,
+			'mutable':mutable
 		};
 
 		var settings = {
 			'default':requirable,
 			'level':authentication
 		};
-			
+
 
 		if (len) {
 			//Get Symbol and line type
 			chr = line.charAt(0);
 			tokens.symbol = chr;
-			tokens.type = types[chr];
+			tokens.type = types[chr];	
 		}
 
 		if(!tokens.type) {
@@ -106,14 +120,29 @@ var restlang = (function() {
 			tokens.type = 'description';
 			tokens.name = line;
 			return tokens;
+
 		}
+
+		if (nestable.indexOf(tokens.type)>-1) {
+			//Check for multiple symbols
+			if (!reSymbols[chr]) {
+				//Construct repeating symbols regex
+				reSymbols[chr] = new RegExp('^([\\' + chr + ']+)');
+			}
+
+			var nested = reSymbols[chr].exec(line);
+			if (nested && nested.length && nested[0].length>1) {
+				tokens.nested = nested[0].length;
+				line = line.substr(tokens.nested-1);
+			}
+		}
+
 
 		var named = false;
 		var done = false;
 		var space = false;
 		var datatype = '';
 		var token = '';
-		var keyword = null;
 		var setting = null;
 		var setable = null;
 		while (!done) {
@@ -139,9 +168,9 @@ var restlang = (function() {
 					tokens.name = token;
 					named = true;
 
-				} else if (keyword  = keywords[token]) {
+				} else if (keywords[token]) {
 					//Token is a keyword
-					if(keyword.indexOf(tokens.type)>-1) {
+					if(keywords[token].indexOf(tokens.type)>-1) {
 						tokens[token] = true;
 					} else {
 						tokens.error = "The keyword '"+token+"' cannot apply to a " + tokens.type;
@@ -307,7 +336,7 @@ var restlang = (function() {
 			}
 			if(obj) stack.unshift({type:'property',obj:obj});
 
-		}
+		};
 
 		//Adds an external command reference
 		var command = function(tokens) {
@@ -329,7 +358,13 @@ var restlang = (function() {
 				if(!tokens.name) error("A name is missing for '"+line+"'");
 				if(!tokens.datatype) error("A datatype is missing for '"+tokens.name+"'");
 
-				var curr = popto('method',errormessage.replace('%s',tokens.name));
+				var curr;
+				if(tokens.nested) {
+					curr = popto(key,errormessage.replace('%s',tokens.name));
+				} else {
+					curr = popto('method',errormessage.replace('%s',tokens.name));
+				}
+
 				curr[key] = curr[key]||{};
 
 				var name = tokens.name;
@@ -339,8 +374,8 @@ var restlang = (function() {
 				obj.type = tokens.datatype;
 				if(tokens.require) obj.required = true;
 				if(tokens.description) obj.description = tokens.description;
-			}
-		}
+			};
+		};
 
 		//Declare method request parameter functions
 		var param = parameter('params',"The route parameter '%s' does not apply to a method.");
@@ -348,8 +383,8 @@ var restlang = (function() {
 		var body = parameter('body',"The body parameter '%s' does not apply to a method.");
 		var file = parameter('files',"The file attachment '%s' does not apply to a method.");
 
-		//Declate method response parameter functions
-		var response = parameter('response',"The response field '%s' does not apply to a method.");
+		//Declare method response parameter functions
+		var response = parameter('response',"The response field '%s' does not apply to a method or parent response object.");
 
 		//Loop through all the lines and parse the source
 		for(i=0,l=lines.length;i<l;i++) {
@@ -357,6 +392,8 @@ var restlang = (function() {
 			line = lines[i];
 
 			tokens = tokenize(line);
+
+			if (tokens.error) error(tokens.error,i,line);
 
 			switch(tokens.type) {
 				case 'resource': resource(tokens); break;
@@ -377,6 +414,9 @@ var restlang = (function() {
 		return api;
 
 	};
+
+	parse.tokenize = tokenize;
+	parse.datatypes = datatypes;
 
 	return parse;
 
