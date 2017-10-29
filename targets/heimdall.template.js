@@ -6,22 +6,108 @@
  *
  * ********************************************/
 
-var heimdall  = require('heimdall');
+var heimdall = require('heimdall');
 var datatype = heimdall.datatypes;
 
-module.exports = {
-	<% _.each(api,function(resource) { %> 
-		name: "<%=resource.name%>",
-		description: "<%=resource.description%>",
-		api: {
-			<% _.each(resource.resource,function(route,key) { %>			
-				<%=edda.method(route)%>:{
-					description:"<%=route.description%>",
-					params:{},
-					fields:{},
-					command: "<%=route.command%>"
-				}
-			<%});%>
+<% edda.locals = {controller:'controller'} %>
+<% edda.controllers(api,function(name,location) { %>
+var <%=name%><%=edda.locals.controller%> = require('<%=location%>');
+<% }); %>
+
+module.exports = { 
+	resources: [
+	<% edda.resources(api,function(resource,resourcecomma) { %>
+		{
+			name: "<%=resource.name%>",
+			description: "<%=resource.description%>",
+			api: {
+				<% edda.methods(resource,function(route,key,methodcomma) { %>
+					<%=methodcomma%><%=edda.method(route)%>:{
+
+						description:"<%=route.description%>",
+
+						<% if(edda.exists(route.params)) {%>
+						params:{
+							<% _.each(route.params,function(param,key){ %>
+							<%=key%>:datatype.<%=param.type%>("<%=param.description%>",<%=(param.required?"true":"false")%>),
+							<% }); %>
+						},
+						<% } %>
+
+						<% if(edda.exists(route.query)) {%>
+						query:{
+							<% _.each(route.query,function(query,key){ %>
+							<%=key%>:datatype.<%=query.type%>("<%=query.description%>",<%=(query.required?"true":"false")%>),
+							<% }); %>
+						},
+						<% } %>
+
+						<% if(edda.exists(route.body)) {%>
+						body:{
+							<% _.each(route.body,function(body,key){ %>
+							<%=key%>:datatype.<%=body.type%>("<%=body.description%>",<%=(body.required?"true":"false")%>),
+							<% }); %>
+						},
+						<% } %>
+
+						<% if(edda.exists(route.files)) {%>
+						files:{
+							<% _.each(route.files,function(file,key){ %>
+							<%=key%>:datatype.<%=file.type%>("<%=file.description%>",<%=(file.required?"true":"false")%>),
+							<% }); %>
+						},
+						<% } %>
+
+						/*
+						<% if(edda.exists(route.response)) {%>
+						response:{
+							<% edda.response(route.response,function(field,key){ %>
+							<%=key%>:datatype.<%=field.type%>("<%=field.description%>",<%=(field.required?"true":"false")%>),
+							<% }); %>
+						},
+
+						<% } %>
+						*/
+
+						/*
+						<% if(edda.exists(route.response)) {%>
+
+						response:{
+
+							<% (function(){
+									var stack = [];
+									var responses = function(response) {
+										_.each(response,function(field,key){ 
+											if(field.type==='object' && field.response) {
+												print(key,':{\n',edda.repeat('\t',stack.length+8));
+												stack.unshift('}');
+												responses(field.response);
+											} else if (field.type==='array' && field.response) {
+												print(key,':[{\n',edda.repeat('\t',stack.length+8));
+												stack.unshift('}]');
+												responses(field.response);
+											} else {
+												print(key,':datatype.',field.type,'("',field.description,'",',field.required?"true":"false",'),\n',edda.repeat('\t',stack.length+7));
+											}			
+										});
+										print(stack.shift());
+									};
+									responses(route.response);
+								})();
+							%>
+
+						},
+
+						<% } %>
+						*/
+
+
+						command: <%=edda.command(api,route.command,edda.locals.controller+'.')||"function(){}"%>
+					}
+				<%});%>
+			}
 		}
 	<%});%>
-}
+	
+	
+]}
