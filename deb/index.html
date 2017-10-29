@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WALLPAPER / by deborah bowness</title>
+    <meta charset="utf-8" />
+	<meta name="Author" content="Deborah Bowness" />
+	<meta name="Description" content="Wallpaper By Deborah Bowness" />
+	<meta name="Keywords" content="Wallpaper, Deborah Bowness, Deb Bowness, Bowness" />
+
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/scenery.css">
+
+
+	<script language="javascript" type="text/javascript" src="javascript/jquery.1.6.2.min.js"></script>
+	<script language="javascript" type="text/javascript" src="javascript/hscroll.js"></script>
+	<script language="javascript" type="text/javascript" src="javascript/plax.js"></script>
+
+	<script language="javascript" type="text/javascript">
+
+		var shoplinks = window.shoplinks = {
+			"clock1":		["/shop.html?item=clock1", "Clock", "Description Here", "100cmx100cm"],
+			"flowerpot1":	["/shop.html?item=flowerpot1", "Flower Pot", "Description Here", "100cmx100cm"],
+			"flowers1":		["/shop.html?item=flowers1", "Flowers", "Description Here", "100cmx100cm"],
+			"flowers2":		["/shop.html?item=flowers2", "Flowers", "Description Here", "100cmx100cm"],
+			"flowers3":		["/shop.html?item=flowers3", "Flowers", "Description Here", "100cmx100cm"],
+			"wallpaper1":	["/shop.html?item=wallpaper1", "Wallpaper", "Description Here", "100cmx100cm"],
+			"ducks1":		["/shop.html?item=ruddyducks", "Ruddy Ducks", "Description Here", "100cmx100cm"],
+			"ducks2":		["/shop.html?item=ruddyducks", "Ruddy Ducks", "Description Here", "100cmx100cm"],
+			"ducks3":		["/shop.html?item=ruddyducks", "Ruddy Ducks", "Description Here", "100cmx100cm"],
+			"birds1":		["/shop.html?item=birds", "Birds", "Description Here", "100cmx100cm"],
+			"birds2":		["/shop.html?item=birds", "Birds", "Description Here", "100cmx100cm"],
+			"birds3":		["/shop.html?item=birds", "Birds", "Description Here", "100cmx100cm"]
+
+		};
+
+		var parameters = window.parameters = {
+			"originalheight":1075,
+			"originalwidth":5194,
+			"minimumheight":400
+		}
+
+
+
+		$(document).ready(function(){
+
+
+			if (!window.console) {
+				$("<div id='con' style='position:fixed;bottom:0px;left:200px;z-index:1000;'></div>").appendTo('#scenery');
+				window.console = {log:function(s){$('#con').html(s);}};
+			}
+
+			//Load parameters:
+			var loaded = 0;
+			var total = $(".interactive").length;
+			parameters.originalwidth = $('#scenery').width();
+			$(".virtual").each(function() {
+				parameters[$(this).attr("id")] = {offset:$(this).offset(),size:{height:$(this).height(),width:$(this).width()}};
+			});
+
+
+			$(".interactive").each(function() {
+				var i = $(this);
+				$("<img/>")
+					.attr("src", i.attr("src"))
+					.load(function() {
+						parameters[i.attr("src")] = this.height;
+						if (++loaded==total) $(document).trigger('loaded');
+					});
+			});
+
+
+		});
+
+
+		//Fired when parameters loaded:
+		$(document).bind('loaded',function() {
+
+			//enable links
+			$(".clickable").click(function(){ console.log(shoplinks[$(this).attr('id')][0]); });
+
+			//enable bubbles
+			$(".clickable").mouseout(function(){
+				$("#bubble").hide();
+			});
+			$(".clickable").mouseover(function(){
+				var product = shoplinks[$(this).attr('id')];
+				var content = "<h4>"+product[1]+"<h4><p>"+product[2]+"<br /><span>"+product[3]+"</span></p>"
+				$("#bubble").html(content).show();
+			});
+			$(".clickable").mousemove(function(e){ $("#bubble").offset({top:e.pageY-120,left:e.pageX+20 }); });
+
+			//set initial positions:
+			$(window).trigger("resize");
+
+		});
+
+
+		$(window).resize(function(){
+
+			var hgt = window.innerHeight||document.documentElement.clientHeight;
+			if (hgt<parameters.minimumheight) hgt=parameters.minimumheight;
+			var wdt = $("#scenery").width();
+			var rat = hgt/parameters.originalheight;
+			var lft = parseInt(hgt/3).toString() + "px";
+			var sze = parseInt(hgt * 2/3)-70;
+			var txt = $("#lead").text().substring(0,75);
+
+			//margins for intro/lead
+			$("#info").css("margin-left",lft);
+			$("#lead").css("margin-left",lft);
+
+			//height of scenes
+			$(".studioshot").each(function(){
+				$(this).css("height",(hgt + 50).toString() + "px");
+			});
+
+			//height of objects
+			$(".interactive").each(function(){
+				var h = parseInt(rat * parameters[$(this).attr("src")]).toString()+"px";
+				$(this).css("height",h);
+			});
+
+			//lead dots
+			for(var i=0;i<sze;i++) txt+=".";
+			$("#lead").text(txt+="?");
+
+			$(".virtual").each(function() {
+
+				var p = $(this).attr("id");
+				var h = parseInt(hgt/(parameters.originalheight/parameters[p].size.height));
+				var w = h;
+				$(this).css('height',''+h+'px');
+				$(this).css('width', ''+w+'px');
+
+				var x = parseInt(wdt/(parameters.originalwidth/parameters[p].offset.left)) + 'px';
+				var y = parseInt(hgt/(parameters.originalheight/parameters[p].offset.top)) + 'px';
+				$(this).offset({top:y,left:x});
+
+
+			});
+
+
+		});
+
+		$(window).scroll(function() {
+
+
+			var dl = Math.abs($(window).scrollLeft() - $('#scenery').width())-400;
+			var dl1 = dl, dl2=parseInt(dl*1.25), dl3=parseInt(dl*1.5);
+			$('#ducks1').offset({left:dl1});
+			$('#ducks2').offset({left:dl2});
+			$('#ducks3').offset({left:dl3});
+
+			var bl = Math.abs($(window).scrollLeft() - $('#scenery').width());
+			var bl1 = bl, bl2=parseInt(bl*1.25), bl3=parseInt(bl*1.5);
+			$('#birds2').offset({left:bl1});
+			$('#birds3').offset({left:bl2});
+
+		});
+
+
+
+	</script>
+
+  </head>
+  <body>
+
+	<table id="header">
+		<tr id="nav">
+
+			<td id="logo"><a href="/"><img src="images/logo_medium.png" border="0" /></a></td>
+
+			<td class="collection"><a href="/collection.html" class="navlink">COLLECTION</a></td>
+			<td class="seperator">/</td>
+			<td class="projects"><a href="/projects.html" class="navlink">PROJECTS</a></td>
+			<td class="seperator">/</td>
+			<td class="information"><a href="/infromation.html" class="navlink">INFORMATION</a></td>
+			<td class="seperator">/</td>
+			<td class="studio"><a href="/studio.html" class="navlink">STUDIO</a></td>
+			<td class="seperator">/</td>
+			<td class="shop"><a href="/shop.html" class="navlink">SHOP</a></td>
+			<td class="seperator">/</td>
+			<td class="news"><a href="/news.html" class="navlink"><img src="images/news_small.png" border="0" /></a></td>
+			<td class="seperator">/</td>
+			<td class="contact"><a href="/contact.html" class="navlink">CONTACT</a></td>
+
+		</tr>
+	</table>
+
+	<div id="info">
+		Deborah Bowness presents an original style of decorating.  Her unique and timeless designes furnish interiors <br />
+		spaces with an extra dimension. A bold statement made quietly. Tompe I'oiel with a twist.  Beautiful and functional.<br />
+		Wallpapers by Deborah Bowness are hand printed and painted in England.
+	</div>
+
+	<div id="lead">What happens in this light, white airy place which looks out over the sea.</div>
+
+	<div id="scenery">
+
+		   <div class="scene"><img src="./MEDIA/studio1.jpg" class="studioshot first" /></div><!--
+		--><div class="scene"><img src="./MEDIA/studio2.jpg" class="studioshot" /></div><!--
+		--><div class="scene"><img src="./MEDIA/studio3.jpg" class="studioshot" /></div><!--
+		--><div class="scene"><img src="./MEDIA/studio4.jpg" class="studioshot" /></div><!--
+		--><div class="scene"><img src="./MEDIA/studio5.jpg" class="studioshot" /></div><!--
+		--><div class="scene"><img src="./MEDIA/studio6.jpg" class="studioshot" /></div>
+
+		<div id="birds" class="scrolls">
+			<div id="birds1" class="clickable"><img src="MEDIA/birds3.gif" class="interactive" /></div>
+			<div id="birds2" class="clickable"><img src="MEDIA/birds1.gif" class="interactive" /></div>
+			<div id="birds3" class="clickable"><img src="MEDIA/birds2.gif" class="interactive" /></div>
+		</div>
+
+		<div id="ducks" class="scrolls">
+			<div id="ducks1" class="clickable"><img src="MEDIA/ducks1.gif" class="interactive" /></div>
+			<div id="ducks2" class="clickable"><img src="MEDIA/ducks2.gif" class="interactive" /></div>
+			<div id="ducks3" class="clickable"><img src="MEDIA/ducks2.gif" class="interactive" /></div>
+		</div>
+
+		<div id="clock1" class="virtual clickable">&nbsp;</div>
+		<div id="flowerpot1" class="virtual clickable">&nbsp;</div>
+
+		<div id="bubble"></div>
+
+	</div>
+
+
+  </body>
+</html>

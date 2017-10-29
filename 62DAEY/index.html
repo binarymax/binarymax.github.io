@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>6 2 D A E Y</title>
+
+	<script language="JavaScript">
+	//<!--
+		var bWriteMe = true;
+		var iWriteMe = 0;
+		var iWriteMe2 = 0;
+		function BDAEY() {
+			var strMessage = "H,A,P,P,Y, ,6,2, ,D,A,E,Y, ,L,O,V,E, ,M,A,X, ";
+			var aryMessage = strMessage.split(',');
+			var k=0;
+			for (var j=0;j<25;j++) {
+				for (var i=0;i<aryMessage.length;i++) {
+					iWriteMe = window.setTimeout("if (bWriteMe) document.getElementById('bdaey').innerHTML+='"+aryMessage[i]+"';",100*k++);
+					if (k==100) iWriteMe2 = window.setTimeout("if (bWriteMe) document.getElementById('bdaey2').innerHTML+='&lt;-- So click it already!';",100*k++);
+				}
+			}
+		}
+
+		function CDAEY() {
+			window.clearTimeout(iWriteMe);
+			window.clearTimeout(iWriteMe2);
+			bWriteMe = false;
+			openindex('62DAEY.avi');
+		}
+
+		function openindex(strName)
+		{
+			OpenWindow=window.open("", "newwin", "height=455,width=615,toolbar=no,scrollbars="+scroll+",menubar=no");
+			OpenWindow.document.write("<HTML>")
+			OpenWindow.document.write("<TITLE>6 2 D A E Y</TITLE>")
+			OpenWindow.document.write("<BODY BGCOLOR=FFFFFF topmargin=0 leftmargin=0>")
+			OpenWindow.document.write("<EMBED SRC=\""+strName+"\" AUTOSTART=true></EMBED>")
+			OpenWindow.document.write("</HTML>")
+			OpenWindow.document.close()
+			self.name="main"
+		}
+
+	//-->
+	</script>
+
+	<style>
+		.bdaeystyle {font-family:tahoma;color:#141BF7;font-size:14px;font-weight:bold;}
+	</style>
+
+</head>
+
+<body onload="BDAEY();">
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td id="bdaey" class="bdaeystyle" width="640" onclick="CDAEY();"></td></tr>
+</table>
+<table><tr><td><a href="#" onclick="CDAEY();"><img src="62daey.gif" alt="6 2 D A E Y" border=0></a></td><td id="bdaey2" class="bdaeystyle" valign=bottom></td></tr></table>
+</body>
+</html>

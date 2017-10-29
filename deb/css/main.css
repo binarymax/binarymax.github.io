@@ -1,0 +1,41 @@
+/*CSS Reset*/
+body { margin:0px; overflow:auto; background-image:url("../images/grade.jpg"); }
+h1   { font-size:32px; font-weight:bold;   } 
+h2   { font-size:24px; font-weight:normal; }
+h1, h2, div, td, input, li { margin:0px; font-family:helvetica, arial; color:#231f20; } 
+
+/*Objects*/
+#header 	{ margin-top:20px; margin-bottom:20px; margin-right:20px; margin-left:5px; padding:0px; }
+#logo 		{ padding:0px; }
+#nav		{ vertical-align:top; }
+
+#menu 		{ float:left; font-size:16px; margin:0px; padding:0px; }
+#menu li	{ font-weight:normal; cursor:pointer; }
+#menu li:hover	{ font-weight:bold;   cursor:pointer; }
+
+#main		{ margin-top:30px; margin-left:330px; width:50%; }
+#content	{ margin-top:30px; margin-left:20px; width:80%; margin-bottom:20px; }
+
+#footer 	{ position:fixed; bottom:20px; left:20px; font-size:10px; }
+#contentfooter 	{ font-size:10px; margin-top:100px; }
+
+#backdrop img  	{ position:fixed; top:0px; left:0px; margin:0px; padding:0px; z-index:-1; width:100%; }
+
+/*Classes*/
+.collection	{ padding-left:20px; text-align:center; padding-top:22px; }
+.projects	{ text-align:center; padding-top:22px; }
+.information	{ text-align:center; padding-top:22px; }
+.studio		{ text-align:center; padding-top:22px; }
+.shop		{ text-align:center; padding-top:22px; }
+.news		{ text-align:center; padding-top:0px;  }
+.contact	{ text-align:center; padding-top:22px; }
+.seperator	{ padding-top:22px;  padding-left:3px; padding-right:3px; font-weight:bold; }
+
+.menulist	{ text-indent: -20px; list-style:none; }
+.menusublist	{ text-indent: -55px; list-style:none; width:200px; margin-bottom:20px; }
+
+.link		{ color:#231f20; text-decoration:none; font-weight:normal; font-size:14px; }
+.link:hover	{ color:#000000; text-decoration:none; font-weight:bold;   font-size:14px; }
+
+.navlink	{ color:#231f20; text-decoration:none; font-weight:normal; }
+.navlink:hover	{ color:#000000; text-decoration:none; font-weight:normal; text-shadow:0px 0px 1px #000000; }

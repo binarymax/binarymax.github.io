@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>binaryMax.com | tRand</title>
+	<link rel="stylesheet" href="styles/common.css" type="text/css">
+	<link rel="stylesheet" href="styles/tRand.css" type="text/css">
+	<script type="text/javascript" src="javascript/main.js"></script>
+	<script type="text/javascript" src="javascript/tClient.js"></script>
+	<script language="javascript">
+		var max = 22; //mysterious magic number!
+		var c,d,x0,y0;
+		var streamcache;
+		var apiInterval = -1;
+		function load() {
+
+			d = document.getElementById("c");
+			try {
+				//do we have canvas?
+				x0 = 600;
+				y0 = 300;
+				d.width=1920;
+				d.height=1080;
+				c = d.getContext('2d');
+				c.strokeStyle = "black";
+				getWalkingStream();
+				apiInterval = setInterval(getWalkingStream,
+					5000 //the higher this number, the more likely tweets will be fresh
+				);
+			} catch(ex) {
+				//lets give the user something else then:
+				getUnfancyStream();
+			}
+
+		}
+
+		function getWalkingStream() {
+			LogToUI("Loading Twitter stream...",true);
+			tClient.get(TWITTER_PUBLIC_TIMELINE,
+				//callback
+				function(data) {
+					if (streamcache!=data) {
+						streamcache=data;
+						LogToUI("Walking...",false);
+						var randoms = tClient.parseRandoms(data,max*2);
+						randomWalk(randoms);
+						LogToUI("Done.",false);
+					}
+				},
+				//failure
+				function() {
+					clearInterval(apiInterval);
+					LogToUI("Twitter request timed out...not my fault!",true);
+				}
+			);
+		}
+
+		function randomWalk(randoms) {
+			var x1;
+			var y1;
+			var l = randoms.length;
+			for(i=0;i<l-(1+(l%2));i+=2) {
+				if(isNaN(randoms[i]) || isNaN(randoms[i+1])) continue;
+				c.beginPath();
+
+				//keep it on the screen!
+
+				if(x0+(randoms[i+0]-max)>1280) {
+					x1 = Math.abs(x0-(randoms[i+0]-max));
+				} else {
+					x1 = Math.abs(x0+(randoms[i+0]-max));
+				}
+				if(y0+(randoms[i+1]-max)>650) {
+					y1 = Math.abs(y0-(randoms[i+1]-max));
+				} else {
+					y1 = Math.abs(y0+(randoms[i+1]-max));
+				}
+
+				c.moveTo(x0,y0);
+				c.lineTo(x1,y1);
+				c.stroke();
+				x0 = x1;
+				y0 = y1;
+				c.closePath();
+			}
+
+		}
+
+		function getUnfancyStream() {
+			LogToUI("Loading Twitter stream...",true);
+			tClient.get(TWITTER_PUBLIC_TIMELINE,
+				//callback
+				function(data) {
+					if (streamcache!=data) {
+						streamcache=data;
+						document.getElementById("main").innerText+=tClient.parseRandoms(data,max*2);
+						LogToUI("Done.",false);
+					}
+				},
+				//failure
+				function() {
+					clearInterval(apiInterval);
+					LogToUI("Twitter request timed out...not my fault!",true);
+				}
+			);
+		}
+
+	</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body onload="load();">
+
+	<div id="nav">
+		<a class="home pad" href="index.html">binarymax();</a>
+		<span class="curr pad">[tRand]</span>
+		<a class="link pad" href="./dilated_age_of_information.html">Dilated Age of Information</a>
+		<a class="link pad" href="./cube.html">jsCube</span>
+		<a class="link pad" href="./reality_remix.html">reality remix</a>
+		<a class="link pad" href="./square_chase.html">square chase</a>
+		<a class="link" href="./raytrace.html">raytrace</a>
+	</div>
+
+	<div id="main" style="left:0px;">
+
+		Since twitter changed their API requirements, this no longer works as a pure client-side app.<br>
+		Here is a screenshot of how is used to look:<br>
+		<img src="brownian_2.gif" border="0">
+
+		<canvas id="c"></canvas>
+
+	</div>
+
+	<div id="footer">Twitter brownian motion, by Max Lovenheim Irwin</div>
+
+	<div id="HD720"></div>
+
+	<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+</body>
+</html>

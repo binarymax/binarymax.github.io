@@ -1,0 +1,25 @@
+/*CSS Reset:*/
+body { margin:0px; overflow:hidden; }
+h1 {font-size:48pt;} 
+h2 {font-size:30pt;}
+h1, h2, div, input, li { margin:0px; font-family:helvetica; color:#333; } 
+
+#nav { position:fixed; z-index:1000; top:100px; left:50px;}
+#nav ul { list-style:none; }
+#nav ul li { font-size:14pt; }
+#nav ul li:hover { list-style-type:square; }
+
+#loading { position:absolute; z-index:-1; text-align:center; vertical-align:middle; top:50%; text-align:middle; width:100%; }
+#layer1  { position:absolute; z-index:1; top:0px; left:0px; }
+#layer2  { position:absolute; z-index:2; top:0px; left:0px; }
+#layer3  { position:absolute; z-index:3; top:0px; left:0px; }
+#layer4  { position:absolute; z-index:4; top:0px; left:0px; }
+
+#play { position:fixed; z-index:1000; top:120px; right:0px; width:30px; height:20px; 
+	border:2px solid #333; border-top-left-radius:10px; border-bottom-left-radius:10px; border-right:0px; padding:10px; background-color:rgba(30,30,30,0.2); 
+	cursor:pointer;
+      }
+
+.link { color:#333; text-decoration:none; }
+.link:hover { color:#000; text-decoration:none; }
+

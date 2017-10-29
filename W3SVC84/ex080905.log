@@ -1,0 +1,35 @@
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 01:44:07
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 01:44:06 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 66.249.72.48 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 404 0 2 1795 205 343
+2008-09-05 01:44:07 W3SVC84 WEB97 209.34.176.52 GET /images/dot.gif - 80 - 66.249.72.48 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 304 0 0 214 242 281
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 04:19:44
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 04:19:43 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 88.131.106.12 HTTP/1.0 Speedy+Spider+(http://www.entireweb.com/about/search_tech/speedy_spider/) - - www.binarymax.com 404 0 2 1814 199 2500
+2008-09-05 04:19:46 W3SVC84 WEB97 209.34.176.52 GET /index.html - 80 - 88.131.106.12 HTTP/1.0 Speedy+Spider+(http://www.entireweb.com/about/search_tech/speedy_spider/) - - www.binarymax.com 200 0 0 6721 189 609
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 19:15:23
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 19:15:22 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 66.249.72.48 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 404 0 2 1795 258 140
+2008-09-05 19:15:22 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=fl004&directory=flower&title=4 80 - 66.249.72.48 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 705 290 218
+2008-09-05 19:20:24 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=ii012&directory=interstellar&title=12 80 - 66.249.72.48 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 718 297 93
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 20:04:40
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 20:04:39 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=ii010&directory=interstellar&title=10 80 - 66.249.72.48 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 718 297 93
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 20:33:21
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 20:33:21 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 74.6.17.168 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - binarymax.com 404 0 2 1814 190 15
+2008-09-05 20:33:21 W3SVC84 WEB97 209.34.176.52 GET /messages.asp |-|0|404_Not_Found 80 - 74.6.17.168 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - binarymax.com 404 0 0 1814 341 15
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-09-05 23:38:18
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-09-05 23:38:17 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky043&directory=sky&title=43 80 - 74.6.17.168 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - binarymax.com 200 0 0 721 387 140

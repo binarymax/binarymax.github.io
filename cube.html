@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <title>binarymax.com | jsCube</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/common.css" />
+	<link rel="stylesheet" href="styles/cube.css" />
+	<script type="text/javascript" src="javascript/cube_hash.js"></script>
+	<script type="text/javascript" src="javascript/cube_node.js"></script>
+	<script type="text/javascript">
+		function page_load() {
+
+			var data = document.getElementById('data');
+			var a = [];
+
+			if (data.rows) {
+				for(var r=1,rl=data.rows.length;r<rl;r++) {
+					a.push([
+						data.rows[r].cells[0].innerHTML,
+						data.rows[r].cells[1].innerHTML,
+						data.rows[r].cells[2].innerHTML,
+						data.rows[r].cells[3].innerHTML,
+						parseInt(data.rows[r].cells[4].innerHTML)
+					]);
+				}
+			}
+
+			getHashCube(a);
+			getNodeCube(a);
+
+		}
+
+		function getHashCube(a) {
+
+			var c = HashCube(a,function(a,b){return a+b});
+			var o = document.getElementById('hashresults');
+
+
+			for(var ci=0,cl=c.length;ci<cl;ci++) {
+
+				var row = c[ci].values.join(','),
+					index = c[ci].index,
+					sum = 0,
+					count = index.length;
+
+				for(var ii=0;ii<count;ii++) sum += index[ii];
+
+				row += '=' + JSON.stringify({sum:sum,avg:sum/count,count:count});
+
+				o.innerHTML += row + '<br />';
+			}
+
+		}
+
+		function getNodeCube(a) {
+
+			var c = Cube(a);
+			var o = document.getElementById('noderesults');
+
+			var s = "";
+			c.Traverse(function(o){
+				s += JSON.stringify({group:o.item,dimension:o.dimension,values:o.values}) + '<br />';
+			});
+			o.innerHTML += s;
+
+		}
+
+
+	</script>
+  </head>
+  <body onload="page_load();">
+
+	<div id="nav">
+		<a class="home pad" href="index.html">binarymax();</a>
+		<a class="link pad" href="./tRand.html">tRand</a>
+		<a class="link pad" href="./dilated_age_of_information.html">Dilated Age of Information</a>
+		<span class="curr pad">[jsCube]</span>
+		<a class="link pad" href="./reality_remix.html">reality remix</a>
+		<a class="link pad" href="./square_chase.html">square chase</a>
+		<a class="link" href="./raytrace.html">raytrace</a>
+
+	</div>
+
+
+  	<div id="source">
+  		<h2>Source Data</h2>
+		<table id="data">
+			<tr> <td>Region</td><td>Gender</td> <td>Item</td>   <td>Colo(u)r</td><td>Units</td> 	</tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Shirt</td> <td>blue</td> 	<td>2</td> 	 	</tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Short</td>  <td>blue</td> 	<td>3</td> 	 	</tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Shirt</td>  <td>blue</td> 	<td>4</td> 	 	</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Short</td>  <td>blue</td> 	<td>5</td> 	 	</tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Shirt</td>  <td>blue</td> 	<td>9</td> 	 	</tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Short</td>  <td>blue</td> 	<td>6</td> 	 	</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Shirt</td>  <td>blue</td> 	<td>1</td> 	 	</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Short</td>  <td>blue</td> 	<td>7</td> 	 	</tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Pants</td>  <td>blue</td> 	<td>2</td> 	 	</tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Jacket</td> <td>blue</td> 	<td>19</td>  	</tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Pants</td>  <td>blue</td> 	<td>17</td> 	</tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Jacket</td> <td>blue</td> 	<td>23</td>  	</tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Pants</td>  <td>blue</td> 	<td>52</td> 	</tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Pants</td>  <td>blue</td> 	<td>41</td> 	</tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Jacket</td> <td>blue</td> 	<td>29</td>		</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Pants</td>  <td>blue</td> 	<td>13</td> 	</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Jacket</td> <td>blue</td> 	<td>53</td>  	</tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Pants</td>  <td>blue</td> 	<td>56</td> 	</tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Shirt</td>  <td>blue</td> 	<td>3</td> 	 	</tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Short</td>  <td>orange</td> <td>3</td> 	 	</tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Shirt</td>   <td>orange</td> <td>4</td> 	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Short</td>   <td>orange</td> <td>4</td> 	</tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Shirt</td>   <td>orange</td> <td>9</td> 	</tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Short</td>   <td>orange</td> <td>6</td> 	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Shirt</td>   <td>orange</td> <td>9</td> 	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Short</td>   <td>orange</td> <td>2</td> 	</tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Pants</td>   <td>orange</td> <td>3</td> 	</tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Jacket</td>  <td>orange</td> <td>99</td>  	</tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Pants</td>   <td>orange</td> <td>92</td> 	</tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Jacket</td>  <td>orange</td> <td>33</td>  	</tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Pants</td>   <td>orange</td> <td>43</td> 	</tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Pants</td>   <td>orange</td> <td>49</td> 	</tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Jacket</td>  <td>orange</td> <td>39</td>  	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Pants</td>   <td>orange</td> <td>93</td> 	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Jacket</td>  <td>orange</td> <td>43</td>  	</tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Pants</td>   <td>orange</td> <td>46</td> 	</tr>
+
+		</table>
+	</div>
+	<div id="hash">
+		<h2>Naive Cube using Hash Array</h2>
+		<div id="hashresults"></div>
+	</div>
+	<div id="node">
+		<h2>Naive Cube using Node Tree</h2>
+		<div id="noderesults"></div>
+	</div>
+
+	<div id="footer">javascript data cubing algorithms<br />by Max Lovenheim Irwin</div>
+
+	<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+  </body>
+</html>

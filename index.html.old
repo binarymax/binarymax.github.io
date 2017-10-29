@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <title>binarymax.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="Author" content="Max Lovenheim Irwin">
+	<meta name="Description" content="A growing collection of digital experiences via javascript by Max Irwin">
+	<meta name="Keywords" content="binarymax,art,code,javascript,canvas,html5">
+
+    <link rel="stylesheet" href="styles/index.css" />
+
+	<script language="javascript" type="text/javascript" src="javascript/tClient.js"></script>
+
+	<script language="javascript" type="text/javascript">
+
+		var binarymax = window.binarymax;
+		binarymax = binarymax||{};
+
+		if(!binarymax.circus) {
+
+			binarymax.circus=(function(){
+
+				var X=1,Y=1,B=1;
+
+				var load = function() {
+					var z=1;
+					b=document.getElementById("logo");
+					c=document.getElementById("c");
+					var xd=1024,yd=300;
+					setInterval(function(){drawImage(xd,yd,z++)},33);
+
+					b.onmousemove = M;
+					b.onclick = S;
+
+				}
+
+				var drawImage = function (xdim,ydim,z,imgd) {
+					var context = document.getElementById("c").getContext('2d');
+					var imgd = context.createImageData(xdim,ydim);
+					var pix = imgd.data;
+					var i = 0, o = 0, x = 0, y = 0, d = 0;
+
+					for (y = Y; y < Y+ydim; y++ ) {
+						for (x = X; x < X+xdim; x++ ) {
+							o = (x-X) + (y-Y) * xdim;
+							d = (x|y)*z+1;
+							i = Math.abs(d?((x&y)*z)%d:0);
+							pix[o*4+0] = ((x*y)%5==0)?i%255:0;
+							pix[o*4+1] = ((x*y)%5==1)?i%255:0;
+							pix[o*4+2] = ((x*y)%5==2)?i%255:0;
+							pix[o*4+3] = ((x*y)%5!=0)?i%255:0;
+						}
+					}
+
+					context.putImageData(imgd, 0,0);
+					imgd=null;
+				}
+
+				var M = function(e){if(e.x){X=e.x;Y=e.y;}else{X=e.clientX;Y=e.clientY;}}
+				var S = function(){var d=document.getElementById("logo");B=B^1;d.src='./images/binarymax_orange'+B+'.png';}
+
+				return load;
+
+
+			})();
+
+		}
+
+	</script>
+
+
+  </head>
+  <body onload="binarymax.circus();">
+  	<div id="main">
+		<canvas id="c"></canvas>
+		<img src="./images/binarymax_orange1.png" id="logo" />
+		<div id="links">
+			<a class="padlink" href="./tRand.html">tRand</a>
+			<a class="padlink" href="./dilated_age_of_information.html">Dilated Age of Information</a>
+			<a class="padlink" href="./cube.html">jsCube</a>
+			<a class="padlink" href="./reality_remix.html">Reality Remix</a>
+			<a class="padlink" href="./square_chase.html">Square Chase</a>
+			<a class="padlink" href="./tree.html">Tree Generator</a>
+			<a class="padlink" href="./randriaan.html">Randriaan</a>
+			<a href="./raytrace.html">raytrace</a>
+
+			<br>
+
+			<br>
+
+			<a class="padlink" href="http://max.io">blog</a>
+			<a class="padlink" href="http://krgspl.com">kriegspiel</a>
+			<a class="padlink" href="http://shapex.org">shape experiment</a>
+			<a class="padlink" href="http://max.io/bash.html">bashfill</a>
+			<a class="padlink" href="http://www.donaldirwin.com">donaldirwin.com</a>
+			<a class="padlink" href="http://www.anagramica.com">anagramica.com</a>
+			<a href="http://www.paint.io">paint.io</a>
+
+		</div>
+
+		<div id="content">
+			<h2>A growing collection of digital experiences via javascript</h2>
+			| Max Lovenheim Irwin | <a href="http://twitter.com/binarymax">@binarymax</a> | <a href="https://github.com/binarymax">github</a> |
+			<h3>All code on this site is original</h3>
+		</div>
+
+	</div>
+
+	<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

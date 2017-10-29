@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>17.10.08 1800 SE1 4YG</title>
+</head>
+<style type="text/css">
+.main {margin:0px 0px 0px 0px;}
+.floater {display:block;position:absolute;}
+</style>
+<script src="prototype.js" type="text/javascript"></script>
+
+<script language="Javascript">
+
+var iShow = null;
+var iB = 0;
+
+
+function mouseMove(ev)
+{
+	try
+	{
+		showMessage(ev.pageX, ev.pageY);
+	}
+	catch(e)
+	{
+		var ev = window.event;
+		showMessage(
+			ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+			ev.clientY + document.body.scrollTop  - document.body.clientTop
+		);
+	}
+}
+
+
+function showMessage(x,y){
+	var style = {};
+	style.top      = y + 'px';
+	style.left     = x + 'px';
+	$('my_float').setStyle( style );
+}
+
+
+function showRandom()
+{
+	var dt = new Date();
+	var rnX = Math.round(Math.random(dt.getTime()) * document.body.clientWidth-100);
+	var rnY = Math.round(Math.random(dt.getTime()) * 600);
+	var rnS = Math.round(Math.random(dt.getTime()) * 2)+1;
+	var sB = (iB++%2==0)?'orange':'blue';
+
+	var style = {};
+	style.top      = rnY + 'px';
+	style.left     = rnX + 'px';
+
+	var i = new Element('img', { 'src' : 'img/'+sB+'_'+rnS+'.gif' });
+	var d = new Element('div', {'class' : 'floater'}).update(i).hide();
+	$('b').insert(d.setStyle( style ).show());
+
+	if(iB>=100)	clearInterval(iShow);
+}
+
+function startShow()
+{
+    iShow = window.setInterval('showRandom();',100);
+}
+
+document.onmousemove = mouseMove;
+
+
+</script>
+
+<body class="main" background="DBQI_INVITE_web.jpg" onload="startShow();" id='b'>
+<img src="img/orange_1.gif" border=0 onmouseover="showMap();" /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_3.gif" border=0 /><img src="img/blue_2.gif" border=0 /><br />
+<img src="img/orange_1.gif" border=0 /><img src="img/blue_1.gif" border=0 /><br />
+<img src="img/orange_2.gif" border=0 /><img src="img/blue_3.gif" border=0 /><br />
+<div id="my_float" class="floater"><img src="message.gif" /></div>
+</body>
+</html>

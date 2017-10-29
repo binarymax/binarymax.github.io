@@ -1,0 +1,194 @@
+<%@LANGUAGE=VBSCRIPT%>
+<HTML>
+<HEAD>
+<TITLE>swarm</TITLE>
+</HEAD>
+
+<SCRIPT Language="JavaScript">
+<!--
+
+	var dt 		= new Date();
+	var imgNum	= dt.getSeconds() % 3 + 1;
+	var row	  	= 0;
+
+	function writeOrangeStrip() {
+
+		row++;
+
+		if (row%2) {
+
+			document.write('<TD WIDTH=100 colspan=2><IMG SRC="images/blocks'+String((++imgNum)%3+1)+'.gif" border=0></TD>');
+			document.write('<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>');
+
+		} else {
+
+			document.write('<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD><TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>');
+			document.write('<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>');
+
+		}
+
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function moveBody(m_nId) {
+
+		document.all['myBODY'].style.left = document.all['d'+m_nId].style.pixelLeft + 100 + 10;
+		document.all['myBODY'].style.top = document.all['d'+m_nId].style.pixelTop;
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+//-->
+</SCRIPT>
+
+<STYLE>
+
+	.myTable	{width:100%!important;height:5%!important;padding:0;margin:0;}
+	.myTD		{width:100%!important;text-align:right;vertical-align:bottom;font-family:tahoma;font-size:10px;color:#990000;font-weight:bold;}
+	.myLINK		{color:#990000;text-decoration:underline;}
+	.myLINK:hover		{color:#990000;text-decoration:none;}
+	.myLINKb		{color:#990000;text-decoration:underline;font-size=11px;}
+	.myLINKb:hover		{color:#990000;text-decoration:none;font-size=11px;}
+	.myLINK		{color:#990000;text-decoration:underline;}
+	.myLINK:hover		{color:#990000;text-decoration:none;}
+
+</STYLE>
+
+<BODY background="images/blocks2.gif" LINK="#FFFFFF" VLINK="#FFFFFF" ALINK="#FFFF00" marginHeight=0 marginWidth=0 topMargin=0 bottomMargin=0 rightMargin=0 leftMargin=0>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=10>
+	<tr>
+		<td>
+		<TABLE BORDER=0 CELLPADDING=1 CELLSPACING=1>
+
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks3.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks3.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF=""><FONT SIZE=+2
+			>P H O T O S</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF=""><FONT SIZE=+2
+			>M E S S A G E S</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks2.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks2.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF=""><FONT SIZE=+2
+			>A R T</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><FONT SIZE=+2
+			>&nbsp;</FONT></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks2.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks2.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF=""><FONT SIZE=+2
+			>V I D E O # 1 . [ 5 M B ]</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks1.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF=""><FONT SIZE=+2
+			>V I D E O # 2 . [ 5 M B ]</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks3.gif" border=0></TD>
+			<TD BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100><IMG SRC="images/blocks3.gif" border=0></TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeOrangeStrip();</script>
+			</TR>
+
+
+		</TABLE>
+</td>
+</tr>
+</table>
+
+<DIV class="myDIV" id="myBODY1"></DIV>
+
+</BODY>
+</HTML>

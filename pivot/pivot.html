@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>js.Pivot</title>
+    <meta charset="utf-8" />
+
+	<script src="Active_MOLAP.js" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+		function page_load() {
+
+			Pivot.init('t');
+			Pivot.ToRow(0);
+			Pivot.ToRow(1);
+			Pivot.ToColumn(2);
+			//Pivot.ToColumn(4);
+			Pivot.ToData(3);
+
+
+			/*
+			s = document.getElementById('t');
+			a = [];
+
+			//Get the items from the data source:
+			if (s.rows) {
+				for(var r=1,rl=s.rows.length;r<rl;r++) {
+					a.placeDistinct(parseInt(s.rows[r].cells[3].innerText));
+				}
+			}
+			//alert(a.join('\n'));
+			document.body.innerHTML += String.format("<div style='float:right;'>{0}</div>",a.join("<br />"));
+			*/
+
+		}
+	</script>
+  </head>
+  <body onload="page_load();">
+  	<div style="float:left;">
+		<table id="t">
+			<tr> <td>Region</td><td>Gender</td> <td>Style</td> <td>Units</td> <td>Price</td> </tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Shirt</td> <td>2</td> <td>10</td> </tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Short</td> <td>3</td> <td>20</td> </tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Shirt</td> <td>4</td> <td>10</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Short</td> <td>5</td> <td>20</td> </tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Shirt</td> <td>9</td> <td>10</td> </tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Short</td> <td>6</td> <td>20</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Shirt</td> <td>1</td> <td>10</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Short</td> <td>7</td> <td>20</td> </tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Pants</td> <td>2</td> <td>17</td> </tr>
+			<tr> <td>East</td> <td>Male</td>	<td>Jacket</td> <td>19</td> <td>25</td> </tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Pants</td> <td>17</td> <td>17</td> </tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Jacket</td> <td>23</td> <td>25</td> </tr>
+			<tr> <td>East</td> <td>Female</td>	<td>Pants</td> <td>52</td> <td>19</td> </tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Pants</td> <td>41</td> <td>11</td> </tr>
+			<tr> <td>West</td> <td>Male</td>	<td>Jacket</td> <td>29</td> <td>22</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Pants</td> <td>13</td> <td>13</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Jacket</td> <td>53</td> <td>24</td> </tr>
+			<tr> <td>West</td> <td>Female</td>	<td>Pants</td> <td>56</td> <td>15</td> </tr>
+
+			<tr> <td>North</td> <td>Male</td>	<td>Shirt</td> <td>3</td> <td>90</td> </tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Short</td> <td>3</td> <td>30</td> </tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Shirt</td> <td>4</td> <td>90</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Short</td> <td>4</td> <td>30</td> </tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Shirt</td> <td>9</td> <td>90</td> </tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Short</td> <td>6</td> <td>30</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Shirt</td> <td>9</td> <td>90</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Short</td> <td>2</td> <td>30</td> </tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Pants</td> <td>3</td> <td>92</td> </tr>
+			<tr> <td>North</td> <td>Male</td>	<td>Jacket</td> <td>99</td> <td>34</td> </tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Pants</td> <td>92</td> <td>92</td> </tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Jacket</td> <td>33</td> <td>34</td> </tr>
+			<tr> <td>North</td> <td>Female</td>	<td>Pants</td> <td>43</td> <td>99</td> </tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Pants</td> <td>49</td> <td>99</td> </tr>
+			<tr> <td>South</td> <td>Male</td>	<td>Jacket</td> <td>39</td> <td>33</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Pants</td> <td>93</td> <td>93</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Jacket</td> <td>43</td> <td>34</td> </tr>
+			<tr> <td>South</td> <td>Female</td>	<td>Pants</td> <td>46</td> <td>94</td> </tr>
+
+
+		</table>
+	</div>
+	<div style="float:left;border:2px solid black" id="results">
+	</div>
+  </body>
+</html>

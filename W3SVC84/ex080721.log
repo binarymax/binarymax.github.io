@@ -1,0 +1,37 @@
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 06:05:55
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 06:05:54 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 74.6.17.165 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - binarymax.com 404 0 2 1814 190 15
+2008-07-21 06:05:54 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky004&directory=sky&title=4 80 - 74.6.17.165 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - binarymax.com 200 0 0 720 398 93
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 07:45:53
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 07:45:53 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky015&directory=sky&title=15 80 - 82.99.30.32 HTTP/1.0 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) - - www.binarymax.com 200 0 0 721 201 375
+2008-07-21 07:48:24 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky016&directory=sky&title=16 80 - 82.99.30.71 HTTP/1.0 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) - - www.binarymax.com 200 0 0 721 201 390
+2008-07-21 07:52:09 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky017&directory=sky&title=17 80 - 82.99.30.45 HTTP/1.0 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) - - www.binarymax.com 200 0 0 721 201 484
+2008-07-21 07:54:59 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky018&directory=sky&title=18 80 - 82.99.30.14 HTTP/1.0 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) - - www.binarymax.com 200 0 0 721 201 406
+2008-07-21 07:58:27 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky019&directory=sky&title=19 80 - 82.99.30.66 HTTP/1.0 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) - - www.binarymax.com 200 0 0 721 201 312
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 08:59:32
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 08:59:32 W3SVC84 WEB97 209.34.176.52 GET /index.html - 80 - 81.52.143.15 HTTP/1.1 Mozilla/5.0+(Windows;+U;+Windows+NT+5.1;+fr;+rv:1.8.1)+VoilaBot+BETA+1.2+(support.voilabot@orange-ftgroup.com) - - www.binarymax.com 200 0 0 6721 357 250
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 12:53:18
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 12:53:18 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 66.249.66.235 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 404 0 2 1795 205 31
+2008-07-21 12:53:18 W3SVC84 WEB97 209.34.176.52 GET /webphoto/images/flower/fl004.jpg - 80 - 66.249.66.235 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 304 0 0 215 260 187
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 14:43:55
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 14:43:54 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 67.195.37.187 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 404 0 2 1814 194 78
+2008-07-21 14:44:04 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky029&directory=sky&title=29 80 - 67.195.37.187 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp/3.0;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 200 0 0 721 578 62
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-07-21 19:33:30
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-07-21 19:33:30 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 38.99.13.124 HTTP/1.0 Mozilla/5.0+(Twiceler-0.9+http://www.cuill.com/twiceler/robot.html) - - www.binarymax.com 404 0 2 1814 177 109

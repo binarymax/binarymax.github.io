@@ -1,0 +1,73 @@
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 00:19:12
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 00:19:11 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 66.249.71.161 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 404 0 2 1795 258 140
+2008-08-23 00:19:11 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=ii017&directory=interstellar&title=17 80 - 66.249.71.161 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 718 297 234
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 02:20:46
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 02:20:46 W3SVC84 WEB97 209.34.176.52 GET /art/gallery/mouse.jpg - 80 - 66.249.71.163 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 304 0 0 214 249 250
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 02:36:50
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 02:36:49 W3SVC84 WEB97 209.34.176.52 GET /art/gallery/keyboard.jpg - 80 - 66.249.71.163 HTTP/1.1 Googlebot-Image/1.0 - - www.binarymax.com 304 0 0 213 252 171
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 05:03:09
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 05:03:08 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=ii019&directory=interstellar&title=19 80 - 66.249.71.163 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 718 297 109
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 05:58:02
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 05:58:01 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=ii001&directory=interstellar&title=1 80 - 66.249.71.163 HTTP/1.1 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - - www.binarymax.com 200 0 0 717 296 109
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 11:08:49
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 11:08:48 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) - - www.binarymax.com 404 0 2 1814 174 78
+2008-08-23 11:08:48 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) - - www.binarymax.com 200 0 0 2518 173 93
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 12:17:41
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 12:17:41 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) ASPSESSIONIDQSRQDARD=POIIOJDDNBBMMKJGOLKILHKO - www.binarymax.com 200 0 0 2451 228 78
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 13:26:25
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 13:26:24 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) ASPSESSIONIDQSRQDARD=POIIOJDDNBBMMKJGOLKILHKO - www.binarymax.com 200 0 0 2518 228 203
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 14:36:10
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 14:36:09 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) ASPSESSIONIDQSRQDARD=POIIOJDDNBBMMKJGOLKILHKO;+ASPSESSIONIDSSQSBBRC=LFNFPFAAAPCHGGPPOHIAKGOD - www.binarymax.com 200 0 0 2451 275 78
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 14:58:49
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 14:58:48 W3SVC84 WEB97 209.34.176.52 GET /robots.txt - 80 - 74.6.22.162 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 404 0 2 1814 194 31
+2008-08-23 14:58:48 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky040&directory=sky&title=40 80 - 74.6.22.162 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 200 0 0 721 391 93
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 15:46:11
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 15:46:11 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) ASPSESSIONIDQSRQDARD=POIIOJDDNBBMMKJGOLKILHKO;+ASPSESSIONIDSSQSBBRC=LFNFPFAAAPCHGGPPOHIAKGOD - www.binarymax.com 200 0 0 2451 275 78
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 16:56:41
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 16:56:41 W3SVC84 WEB97 209.34.176.52 GET /swarm.asp - 80 - 72.30.12.106 HTTP/1.0 Mozilla/5.0+(Yahoo-Test/4.0;+mailto:vertical-crawl-support@yahoo-inc.com) ASPSESSIONIDQSRQDARD=POIIOJDDNBBMMKJGOLKILHKO;+ASPSESSIONIDSSQSBBRC=LFNFPFAAAPCHGGPPOHIAKGOD - www.binarymax.com 200 0 0 2451 275 78
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 21:33:29
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 21:33:28 W3SVC84 WEB97 209.34.176.52 GET /index.html - 80 - 74.6.22.162 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 200 0 0 6721 330 109
+#Software: Microsoft Internet Information Services 6.0
+#Version: 1.0
+#Date: 2008-08-23 23:02:34
+#Fields: date time s-sitename s-computername s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken 
+2008-08-23 23:02:33 W3SVC84 WEB97 209.34.176.52 GET /webphoto/showimage.asp image=sky043&directory=sky&title=43 80 - 74.6.22.162 HTTP/1.0 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp) - - www.binarymax.com 200 0 0 721 388 124

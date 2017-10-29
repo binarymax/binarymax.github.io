@@ -1,0 +1,213 @@
+<HTML>
+	<HEAD>
+
+		<META NAME="Name" CONTENT="Binarymax">
+		<META NAME="Author" CONTENT="Max Irwin">
+		<META NAME="Description" CONTENT=" * Binarymax.com * * * Modern Art by Max Irwin * ">
+		<META NAME="Keywords" CONTENT="Max Irwin, binarymax, art, sculpture, sky, photography, message, thought, source, love, peace">
+
+		<TITLE> B I N A R Y M A X * C O M * * * * * * * * * * * * * * * * * * * * * * * *</TITLE>
+
+	</HEAD>
+
+<SCRIPT Language="JavaScript">
+<!--
+
+	var dt 		= new Date();
+	var imgNum	= dt.getSeconds() % 3 + 1;
+	var row	  	= 0;
+	var aryBlocks = new Array("blue","blocks","green","yellow");
+
+	function writeBlockStrip() {
+
+		row++;
+
+		if (row%2) {
+
+			document.write('<TD WIDTH=100 colspan=2><IMG SRC="images/'+String(aryBlocks[randomInt(4)])+String((++imgNum)%3+1)+'.gif" border=0></TD>');
+			document.write('<TD WIDTH=24 BGCOLOR="#FF5D00">&nbsp;</TD>');
+
+		} else {
+
+			document.write('<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD><TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>');
+			document.write('<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>');
+
+		}
+
+
+	}
+
+	function randomInt(intMax) {
+		return (parseInt(Math.random()*100)%intMax);
+
+	}
+
+	function writeBlock() {
+
+		var s = new String();
+
+		s='<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp</TD>' +
+		  '<TD WIDTH=100><IMG SRC="images/' + String(aryBlocks[randomInt(4)]) + String((++imgNum)%3+1) + '.gif" border=0></TD>' +
+		  '<TD BGCOLOR="#FF5D00">'+writeSwitch(22)+'</TD>' +
+		  '<TD WIDTH=100><IMG SRC="images/' + String(aryBlocks[randomInt(4)]) + String((++imgNum)%3+1) + '.gif" border=0></TD>' +
+		  '<TD WIDTH=33 BGCOLOR="#FF5D00">'+writeSwitch(3)+'</TD>';
+		document.write(s);
+		writeBlockStrip();
+		document.write('</TR>');
+
+	}
+
+	function writeSwitch(intMax) {
+		var strColor=aryBlocks[randomInt(3)];
+		var s = new String('<IMG SRC="images/');
+		var p = new String('.gif" border=0>'); //'<IMG SRC="images/' + String(aryBlocks[randomInt(4)]) + String((imgNum)%3+1) + '.gif" border=0>';
+		var ps = new String();
+		for (var i=0;i<intMax;i++) {
+			strColor=aryBlocks[randomInt(3)];
+			ps+=s+String(strColor + 'switch' + String((parseInt(Math.random()*100))%3+1))+p;
+		}
+		return ps;
+	}
+
+	function randImage() {
+		return String(String(aryBlocks[randomInt(4)]) + String((imgNum)%3+1) + '.gif');
+	}
+
+
+//-->
+</SCRIPT>
+
+<STYLE>
+
+	.myTable	{width:100%!important;height:5%!important;padding:0;margin:0;}
+	.myTD		{width:100%!important;text-align:right;vertical-align:bottom;font-family:tahoma;font-size:10px;color:#990000;font-weight:bold;}
+	.mylink		{color:#990000;text-decoration:underline;}
+	.mylink:hover		{color:#990000;text-decoration:none;}
+	.mylinkb		{color:#990000;text-decoration:underline;font-size=11px;}
+	.mylinkb:hover		{color:#990000;text-decoration:none;font-size=11px;}
+	.mylink		{color:#990000;text-decoration:underline;}
+	.mylink:hover		{color:#990000;text-decoration:none;}
+
+	.header	{color:#FF5D00;font-family:courier;text-decoration:underline;font-size:20px;font-weight:bold;}
+	.footer	{color:#FF5D00;font-family:courier;text-decoration:overline;font-size:20px;font-weight:bold;}
+
+
+</STYLE>
+
+<SCRIPT>
+document.write('<BODY LINK="#FFFFFF" VLINK="#FFFFFF" ALINK="#FFFF00" marginHeight=0 marginWidth=0 topMargin=0 bottomMargin=0 rightMargin=0 leftMargin=0>');
+</SCRIPT>
+<SCRIPT>
+document.write('<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 background="images/'+randImage()+'">');
+</SCRIPT>
+
+	<tr>
+		<td nowrap><TABLE BORDER=0 CELLPADDING=1 CELLSPACING=1>
+
+
+		<TR>
+			<TD COLSPAN=8 HEIGHT="30" ALIGN="center" VALIGN="bottom" class="header">* Binarymax.com * * * Modern Art by Max Irwin * </TD>
+		</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00" nowrap>&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="webphoto/skyfs.asp"><FONT SIZE=+2
+			>P H O T O S</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="13.asp"><FONT SIZE=+2
+			>M E S S A G E S</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="art/index.html"><FONT SIZE=+2
+			>A R T ! ! ! !</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="index.asp"><FONT SIZE=+2
+			>I N S E C T S ! !</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="video.avi"><FONT SIZE=+2
+			>V I D E O # 1 . [ 5 M B ]</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR><TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD BGCOLOR="#FF5D00" align=center valign=middle nowrap
+			><A HREF="video2.avi"><FONT SIZE=+2
+			>V I D E O # 2 . [ 5 M B ]</FONT></a></TD>
+			<TD WIDTH=100 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<TD WIDTH=25 BGCOLOR="#FF5D00">&nbsp;</TD>
+			<script>writeBlockStrip();</script>
+			</TR>
+
+			<script>
+			writeBlock();
+			</script>
+
+		<TR>
+			<TD COLSPAN=8 HEIGHT="30" ALIGN=center VALIGN="top" class="footer">* Binarymax.com * * * Modern Art by Max Irwin * </TD>
+		</TR>
+
+		</TABLE>
+</td>
+</tr>
+</table>
+
+
+
+</BODY>
+</HTML>

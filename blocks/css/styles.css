@@ -1,0 +1,5 @@
+* {border-box:0;} body {overflow:hidden;margin:0;padding:0;}
+
+#stats { position:fixed;top:0;left:0;z-index:505;}
+#copopoko { position:fixed;top:0;left:0;z-index:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;}
+

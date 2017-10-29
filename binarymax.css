@@ -1,0 +1,136 @@
+/* Box-sizing reset */
+* { box-sizing: border-box; }
+
+/* Globals */
+body { 
+	font-family:calibri, verdana, sans-serif; 
+	background-color:#333;
+}
+
+h1 {
+	font-size:8em;
+	line-height:1em; margin:0px;
+}
+h1,h2,h3,h4 { 
+	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; 
+}
+
+#content {
+	text-align: center;
+}
+
+#logo {
+	width:100%;
+	max-width:937px;
+}
+
+#anim {
+	width:0;
+	height:0;
+}
+
+.text {
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:18px;
+	max-width: 937px;
+	color:#eee;
+}
+
+.text a {
+	color:#888;
+	text-decoration: none;
+}
+
+.text a:hover {
+	color:#fff;
+}
+
+/* Sections */
+.section {
+	text-align:left;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px; 
+	margin-bottom:5px; 
+	border-radius:3px; 
+	padding-bottom:5px;
+	max-width:973px;
+	min-width:320px;
+	background-color:#fff;
+}
+.section-header {
+	text-align:center;
+	font-size:2.0em;
+	line-height:1.5em;
+	margin: 0px 10px 0px 17px;
+	padding-top:5px;
+	text-shadow: 0px 1px 3px rgba(0,0,0,0.5); 
+}
+
+#apps  > header > .section-header { color: #fef1f0; }
+#demos > header > .section-header { color: #f0f1fe; }
+#posts > header > .section-header { color: #f0fef1; }
+#repos > header > .section-header { color: #fefaf0; }
+
+/* Cards */
+.card {
+	width:300px;
+	height:300px;
+	margin:10px;
+	margin-bottom:15px;
+	border-radius:3px;
+	padding:3px;
+	display:inline-block;
+	vertical-align: top;
+
+	-webkit-box-shadow:0px 3px 5px hsla(0, 0%, 0%, 0.5);
+	-moz-box-shadow:0px 3px 5px hsla(0, 0%, 0%, 0.5);
+	box-shadow:0px 3px 5px hsla(0, 0%, 0%, 0.5);
+}
+
+.card a {
+	color:#777;
+}
+
+.card a:hover {
+	color:#505;
+}
+
+#apps  > .card { background-color:#fef1f0; }
+#demos > .card { background-color:#f0f1fe; }
+#posts > .card { background-color:#f0fef1; }
+#repos > .card { background-color:#fefaf0; }
+
+.card-header { 
+	font-size:1.2em;
+	line-height:1.2em;
+	padding:0px;
+	margin: 10px 5px 10px 5px;
+	color:#333;
+	text-shadow: 1px 1px 1px #deaea7;	
+}
+
+.card-link { 
+	text-decoration: underline;
+	margin: 0px 5px 0px 5px;
+	font-size:0.9em;
+}
+
+.card-text {
+		margin: 10px 5px 5px 5px;
+		font-size:0.8em;
+}
+
+.card-thumb {
+	float:right;
+	width:140px;
+	margin-right:2px;
+	margin-left:4px;
+	margin-bottom:4px;
+	-webkit-box-shadow:0px 1px 2px hsla(0, 0%, 0%, 0.5);
+	-moz-box-shadow:0px 1px 2px hsla(0, 0%, 0%, 0.5);
+	box-shadow:0px 1px 2px hsla(0, 0%, 0%, 0.5);
+}
+
+

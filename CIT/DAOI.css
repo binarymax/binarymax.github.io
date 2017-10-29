@@ -1,0 +1,25 @@
+body {
+	font-family:futura;
+}
+
+canvas {
+	background-color:transparent;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.console {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.timer {
+	font-size:48pt;
+	color:#222;
+	background: rgba(200, 200, 200, 0.50);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px black solid;
+}

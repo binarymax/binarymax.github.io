@@ -1,0 +1,5 @@
+div	{ font-size:12px; color:#333; }
+#source	{ float:left; margin-right:30px; background-color:#fff8dc; padding:10px; }
+#hash	{ float:left; margin-right:30px; background-color:#fff8dc; padding:10px; }
+#node	{ float:left; background-color:#fff8dc; padding:10px; }
+#footer { position:fixed; bottom:0px; left:0px; }

@@ -1,0 +1,280 @@
+<html>
+
+<head>
+	<title>Replication</title>
+	<link rel="stylesheet" href="mystyle.css">
+</head>
+
+<style>
+BODY {
+	background-color: #FFFFEE;
+}
+
+.myDIV {
+	cursor: hand;
+	position: absolute;
+}
+
+.myInnerText {
+	cursor: hand;
+	font-family: webdings!important;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+.myBIG {
+	position: absolute;
+	font-family: wingdings;
+	font-size: 512px;
+	font-weight: bold;
+	color: #FFEEEE;
+	text-align:center;
+	vertical-align:middle;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+
+</style>
+
+<script language=javascript>
+<!--
+
+	//-------------------------------------------------------------------------------------
+
+	//Global Constants:
+	var MAX_SHAPES = 30; 		 //total number of objects
+	var MAX_TEXTS  = 5; //total number of texts per object
+	var MAX_COLORS = 7; //number should match what is in "mystyles.css"
+	var MAX_ZINDEX = MAX_SHAPES+1; //'Highest' shape
+	var SHAPE_SPACE = 40;
+
+	var CHANGE_TEXT = 0; //Object's inner text change (0=off 1=on)
+
+	//Global Variables:
+	var sID;
+
+	//TEXT ME UP!
+	var myText = new Array(MAX_SHAPES);
+	for (iA=0;iA<MAX_SHAPES;iA++)	{
+		myText[iA] = new Array(MAX_TEXTS);
+		for (iB=0;iB<=MAX_TEXTS;iB++) {
+			myText[iA][iB] = '<<<<<';
+		}
+
+	}
+	//-------------------------------------------------------------------------------------
+
+	function spaceMe(nSpaces) {
+
+		/***************************************
+		*
+		* Creates a string of whitespace of
+		*  length nSpaces
+		*
+		***************************************/
+
+		var s = new String();
+		for (var i=0;i<nSpaces;i++) s+='&nbsp;';
+		return s;
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function startDrag(nId) {
+
+		/***************************************
+		*
+		* Initializes an object for dragging.
+		*
+		***************************************/
+
+		/*
+
+					//Double Click Feature (not implemented)
+					if (document.all[nId].doublebit == '1') {
+						stopDrag('A');
+					}
+
+					if (document.all[nId].clickybit=='1') {
+						if (sID) clearTimeout(sID);
+						document.all[nId].doublebit = '1';
+						document.all[nId].clickybit = '0';
+					}	else {
+						document.all[nId].clickybit='1';
+						sID = setTimeout("window.document.all['"+String(nId)+"'].clickybit='0';",1000);
+					}
+
+		*/
+
+		//Keeps mouse cursor location relative inside shape:
+		if (document.all[nId].stickybit!='1') {
+			document.all[nId].diffX = window.event.x - document.all[nId].style.pixelLeft;
+			document.all[nId].diffY = window.event.y - document.all[nId].style.pixelTop;
+		}
+
+		//Sets drag to ON:
+		document.all[nId].stickybit='1';
+
+		//Brings to front:
+		document.all[nId].style.zIndex = ++MAX_ZINDEX;
+
+		//Redraws face:
+		if (document.all['FACE']) document.all['FACE'].innerText = 'L';
+
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function stopDrag(nId) {
+
+		/***************************************
+		*
+		* Disables dragging of all or a specific
+		*	 object.
+		*
+		***************************************/
+
+		if (nId == 'A') {
+			//Stop for all objects
+			for(var i=0;i<MAX_SHAPES;i++)
+			if (document.all['d'+i].stickybit=='1') {
+				document.all['d'+i].stickybit='0';
+			}
+
+		} else {
+			//stop for object nID
+			document.all[nId].stickybit='0';
+		}
+
+		//Redraw Face
+		if (document.all['FACE']) document.all['FACE'].innerText = 'K';
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function buildShape(nId) {
+
+		/***************************************
+		*
+		* Creates and initializes an object.
+		*
+		***************************************/
+
+			var s = new String();
+
+			//Prepare object HTML:
+			s+=('	<DIV id="d'+nId+'" class="myDIV" onMouseDown="startDrag(\'d'+nId+'\');" onMouseUp="stopDrag(\'d'+nId+'\');">');
+			s+=('		<table class="myTABLE'+(nId%MAX_COLORS)+'"><tr><td class="myTD">');
+			s+=('				<span id="t0'+nId+'" style="myInnerText">'+myText[nId][0]+'</span>'+spaceMe(3));
+			s+=('				<span id="t1'+nId+'" style="myInnerText">'+myText[nId][1]+'</span>'+spaceMe(3));
+			s+=('				<span id="t2'+nId+'" style="myInnerText">'+myText[nId][2]+'</span>'+spaceMe(3));
+			s+=('				<span id="t3'+nId+'" style="myInnerText">'+myText[nId][3]+'</span>'+spaceMe(3));
+			s+=('				<span id="t4'+nId+'" style="myInnerText">'+myText[nId][4]+'</span>'+spaceMe(3));
+			s+=('				<span id="t5'+nId+'" style="myInnerText">'+myText[nId][5]+'</span>'+spaceMe(3));
+			s+=('		</td></tr></table>');
+			s+=('	</DIV>');
+
+			//Create Object:
+			document.write(s);
+
+			//Initialize object properties:
+			document.all['d'+nId].style.top=nId*SHAPE_SPACE;
+			document.all['d'+nId].style.left=nId*SHAPE_SPACE;
+			document.all['d'+nId].style.zIndex = nId+1;
+			document.all['d'+nId].style.diffX=0;
+			document.all['d'+nId].style.siffY=0;
+			document.all['d'+nId].stickybit = new String('0');
+			document.all['d'+nId].clickybit = new String('0');
+			document.all['d'+nId].boublebit = new String('0');
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function loadMe() {
+
+		/***************************************
+		*
+		* Handles any main initializations.
+		*
+		***************************************/
+
+		document.all['FACE'].style.fontSize = window.dialogHeight //MAX_SHAPES * SHAPE_SPACE;
+
+		//Indicate document loaded:
+		self.loaded = true;
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function moveEvent() {
+
+		/***************************************
+		*
+		* Main mouse handler:
+		*
+		***************************************/
+
+		for(var i=0;i<MAX_SHAPES;i++)
+		if (document.all['d'+i]) {
+			if (document.all['d'+i].stickybit=='1' || document.all['d'+i].doublebit=='1') {
+
+				myX=window.event.x;
+				myY=window.event.y;
+
+				document.all['d'+i].style.left=myX - document.all['d'+i].diffX;
+				document.all['d'+i].style.top=myY - document.all['d'+i].diffY;
+
+				if (CHANGE_TEXT) {
+					if (document.all['t0'+i]) document.all['t0'+i].innerText=String(myX);
+					if (document.all['t1'+i]) document.all['t1'+i].innerText=String(myY);
+					if (document.all['t2'+i]) document.all['t2'+i].innerText=String(window.event.x);
+					if (document.all['t3'+i]) document.all['t3'+i].innerText=String(window.event.y);
+					if (document.all['t4'+i]) document.all['t4'+i].innerText=String('my');
+					if (document.all['t5'+i]) document.all['t5'+i].innerText=String('text');
+				}
+
+			}
+		}
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+	function keyEvent() {
+
+		/***************************************
+		*
+		* Main keyboard handler:
+		*
+		***************************************/
+
+		//alert(event.keyCode + ' pressed');
+
+
+	}
+
+	//-------------------------------------------------------------------------------------
+
+//-->
+</script>
+
+<body onLoad="loadMe();" onMouseMove="moveEvent();window.status = 'X=' + window.event.x + ' Y=' + window.event.y;" onMouseUp="stopDrag('A');" onKeydown="keyEvent();">
+
+<SPAN class="myBIG" id="FACE">K</SPAN>
+
+<script language="javascript">
+<!--
+		for (var nId=0;nId<MAX_SHAPES;nId++) {
+			buildShape(nId);
+		}
+//-->
+</script>
+
+</body>
+</html>

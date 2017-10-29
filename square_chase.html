@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>binarymax.com | square chase</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="main.css" type="text/css">
+	<link rel="stylesheet" href="styles/common.css" type="text/css">
+	<link rel="stylesheet" href="styles/tRand.css" type="text/css">
+	<script type="text/javascript" src="javascript/main.js"></script>
+  </head>
+  <body>
+
+	<div id="nav">
+		<a class="home pad" href="index.html">binarymax();</a>
+		<a class="link pad" href="./tRand.html">tRand</a>
+		<a class="link pad" href="./dilated_age_of_information.html">Dilated Age of Information</a>
+		<a class="link pad" href="./cube.html">jsCube</a>
+		<a class="link pad" href="./reality_remix.html">reality remix</a>
+		<span class="curr pad">[square chase]</span>
+		<a class="link" href="./raytrace.html">raytrace</a>
+
+	</div>
+
+	<div id="main" style="left:0px;">
+
+		<canvas id="c"></canvas>
+
+	</div>
+
+	<div id="footer">&copy;click the squares!, 994 bytes by Max Lovenheim Irwin</div>
+
+	<div id="HD720"></div>
+
+	<script language="javascript" type="text/javascript">
+
+// Version 1.0 :: Upgraded and stripped to 994 bytes
+X=Y=Z=0;N=s=4;l=20;d=document;c=d.getElementById('c');o=c.getContext('2d');V=c.height=600;L=c.width=1200;A=Math.abs;R=[];r={i:0,x:0,y:0,h:0,v:0,D:0,I:function(j,J){with(this){i=j,x=L/2,y=V/2,h=(j>1)?-j:j+1,v=(j>1)?-j-1:j};if(J)setInterval("R["+j+"].M()",l/s);},M:function(){with(this){h=(x<9)?i+1:h,h=(x>L-9)?-i-1:h,v=(y<9)?i+1:v,v=(y>V-9)?-i-1:v,o.clearRect(x,y,l,l),x+=h,y+=v,b="rgb(10,35,25)".replace(i%4,"25"),o.strokeStyle=b,D=(Math.sqrt(A((L-x)*(0-x)+(V-y)*(0-y))))/l,o.strokeRect(x,y,D,D)}},P:function(){t=this;if(X%2)t.h=(X>t.x)?-3:3;if(Y%2)t.v=(Y>t.y)?-3:3;},T:function(){t=this;u=t.x;U=t.y;if(A(u+t.D-X)<t.D/2&&A(U+t.D-Y)<t.D/2){o.fillStyle='red';o.font="20pt Arial";o.fillText(++Z,u,U-3);o.fillRect(u,U,t.D,t.D);t.I(t.i);}}};function M(e){if(e.x){X=e.x;Y=e.y;}else{X=e.clientX;Y=e.clientY;}for(j in R){R[j].P();}}function C(e){for(j in R){R[j].T();}} function Q(q){n={};for(i in q)n[i]=q[i];return n;} c.onmousemove=M;c.onclick=C;for(f=0;f<N;f++){R.push(Q(r));R[f].I(f,1);}
+
+
+// Version 0.8 :: 1009 bytes **SUBMITTED to JS1K, Summer 2010**
+//Z=0;l=20;s=10;d=document;c=d.body.children.c;o=c.getContext('2d');w=window.screen;V=c.height=w.height-200;L=c.width=w.width-98;X=0;Y=0;A=Math.abs;R=[];h={i:0,x:0,y:0,h:0,v:0,k:0,I:function(j){t=this;t.i=j;t.x=L/2;t.y=V/2;t.h=(j==3||j==2)?-1:1;t.v=(j==3||j==2)?-1:1;t.k=setInterval("R["+j+"].M();",s--);},M:function(){t=this;if(t.x<9)t.h=2;else if(t.x>L-9)t.h=-2;if(t.y<9)t.v=2;else if(t.y>V-9)t.v=-2;o.clearRect(t.x,t.y,l,l);t.x+=t.h;t.y+=t.v;o.strokeRect(t.x,t.y,l,l);},P:function(){t=this;if(X%2)t.h=(X>t.x)?-3:3;else t.v=(Y>t.y)?-3:3;},T:function(){t=this;if(A(X-(t.x+(l/4)))<l*2&&A(Y-(t.y+(l/4)))<l*2)t.D();},D:function(){t=this;o.fillStyle='red';o.font="16pt Arial";o.fillText(++Z,t.x,t.y-2);o.fillRect(t.x,t.y,l,l);clearInterval(t.k);t.I(t.i);}};function M(e){if(e.x){X=e.x;Y=e.y;}else{X=e.clientX;Y=e.clientY;}for(j=0;j<4;j++){R[j].P();}} function C(e){for(j=0;j<4;j++){R[j].T();}} function Q(q){n={};for(i in q)n[i]=q[i];return n;} c.onmousemove=M;c.onclick=C;for(f=0;f<4;f++){R.push(Q(h));R[f].I(f);}
+
+	</script>
+
+	<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+  </body>
+</html>

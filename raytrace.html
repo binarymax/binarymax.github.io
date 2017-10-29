@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>binaryMax.com | raytrace</title>
+	<link rel="stylesheet" href="styles/common.css" type="text/css">
+	<link rel="stylesheet" href="styles/tRand.css" type="text/css">
+	<script type="text/javascript" src="javascript/main.js"></script>
+	<script language="javascript">
+
+		var binarymax=window.binarymax;
+		binarymax=binarymax||{};
+		if(!binarymax.raytrace) {
+
+			binarymax.raytrace = (function() {
+				"use strict";
+				var width=1250,height=640;
+				var infinity = -1000000;
+				var spheres = [];
+
+				var Sphere = function(radius,x,y,z,r,g,b,a) {
+					this.radius=radius;
+					this.radius2=radius*radius;
+					this.x=x;
+					this.y=y;
+					this.z=z;
+					this.r=r;
+					this.g=g;
+					this.b=b;
+					this.a=a||1.0;
+				}
+
+				Sphere.prototype.hit = function(sx,sy) {
+					var dx=sx-this.x;
+					var dy=sy-this.y;
+					var dx2=dx*dx;
+					var dy2=dy*dy;
+					if(dx2+dy2<this.radius2) {
+						var dz = Math.sqrt(this.radius2-dx2-dy2);
+						var sc = dz/this.radius;
+						return {n:sc,t:dz+this.z};
+					}
+					return {n:0,t:infinity};
+				}
+
+				var init = function(count){
+					var scale=1.0;
+					for(var i=110;i>110-count;i--) {
+						var s = new Sphere(i*scale, width*Math.random(), height*Math.random(), i, Math.random(), Math.random(), Math.random(), 1.0);
+						spheres.unshift(s);
+					}
+				}
+
+				var render = function(count) {
+					init(count);
+
+					var co= document.getElementById('c');
+					co.width=width;
+					co.height=height;
+					var c = co.getContext('2d');
+					var d = c.createImageData(width,height);
+
+					var r,g,b,a;
+
+					for(var x=0;x<width;x++) {
+						for(var y=0;y<height;y++) {
+
+							var offset = (x+y*width)*4;
+							a=0;
+							for(var s=count-1;s>=0;s--) {
+
+								var o = spheres[s].hit(x,y);
+								if(o.t>infinity) {
+									var scale = o.n;
+									r=parseInt(spheres[s].r*scale*255);
+									g=parseInt(spheres[s].g*scale*255);
+									b=parseInt(spheres[s].b*scale*255);
+									a=255; //alpha hardcoded for now
+									s=-1;
+								}
+
+							}
+
+							d.data[offset+0]=r;
+							d.data[offset+1]=g;
+							d.data[offset+2]=b;
+							d.data[offset+3]=a;
+
+
+
+						}
+					}
+					document.getElementById('params').style.display="none";
+					c.putImageData(d,0,0);
+				}
+
+
+				return {
+					start:function(){
+						var count = parseInt(document.getElementById('count').value);
+						var params = document.getElementById('params');
+						if (!isNaN(count) && count>0 && count<=100) {
+							params.innerHTML="Please be patient...rendering."
+							setTimeout(function(){render(count);},250);
+						} else {
+							params.innerHTML+="<br />Please enter a number between 1 and 100.";
+						}
+					}
+				};
+
+			})();
+
+		}
+
+
+	</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+	<div id="nav">
+		<a class="home pad" href="index.html">binarymax();</a>
+		<a class="link pad" href="./trand.html">tRand</a>
+		<a class="link pad" href="./dilated_age_of_information.html">Dilated Age of Information</a>
+		<a class="link pad" href="./cube.html">jsCube</span>
+		<a class="link pad" href="./reality_remix.html">reality remix</a>
+		<a class="link pad" href="./square_chase.html">square chase</a>
+		<span class="curr">[raytrace]</span>
+	</div>
+
+	<div id="main" style="left:0px;">
+
+		<div id="params"><input type="text" id="count" maxlength="3" value="50" /><input type="button" id="action" value="render!" onclick="binarymax.raytrace.start();" /></div>
+
+		<canvas id="c"></canvas>
+
+	</div>
+
+	<div id="footer">Simple Ray Tracer, by Max Lovenheim Irwin</div>
+
+	<div id="HD720"></div>
+
+	<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+</body>
+</html>

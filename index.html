@@ -1,717 +1,576 @@
 <!doctype html>
 <html>
+<!-- Binarymax.com | Copyright 2014, Max Irwin -->
+<head>
+	<title>binarymax.com</title>
+	<meta name="description" content="The personal website of Max Irwin">
+	<meta name="author" content="Max Irwin">
+	<meta name="canonical" content="http://binarymax.com">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<meta property="og:image" content="http://binarymax.com/star200.png"/>	
+	<meta property="og:title" content="binarymax.com"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:description" content="The personal website of Max Irwin"/>
+	<meta property="og:url" content="http://binarymax.com/"/>
+	<meta property="og:site_name" content="binarymax.com"/>
+	<link rel="shortcut icon" href="http://binarymax.com/star200.png" type="image/png" />
+	<link rel="image_src" href="http://binarymax.com/star200.png" />
+	<link rel="stylesheet" href="/binarymax.css" />
 
-	<head>
+</head>
+<body>
+
+	<div id="content">
+
+		<!-- =================================================== -->
+
+		<header id="head">
+			<canvas id="anim"></canvas>
+			<img id="logo" src="http://binarymax.com/images/binarymax_orange1.png" />
+		</header>
 		
-		<title>Max Irwin's Github > Restlang parser</title>
-	    <meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	    <meta name="viewport" content="width=device-width">
-	    <meta name="description" content="The blog of Max Irwin">
-	    <meta name="author" content="Max Irwin">
-	    <meta name="canonical" content="https://max.io">
-	    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-	    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	    <meta property="og:image" content="https://max.io/star200.png">
-	    <meta property="og:title" content="max.io">
-	    <meta property="og:type" content="website">
-	    <meta property="og:description" content="The blog of Max Irwin">
-	    <meta property="og:url" content="https://max.io/">
-	    <meta property="og:site_name" content="max.io">
-	    <meta property="twitter:card" content="summary">
-	    <meta property="twitter:site:id" content="binarymax">
-	    <meta property="twitter:title" content="max.io">
-	    <meta property="twitter:image" content="https://max.io/star200.png">
-	    <meta property="twitter:description" content="The blog of Max Irwin">
-	    <link rel="shortcut icon" href="https://max.io/star200.png" type="image/png">
-	    <link rel="image_src" href="https://max.io/star200.png">
-
-		<style type="text/css">
-
-			body {
-				font-family:calibri, verdana, sans-serif; 
-				font-size: 21px;
-				line-height: 1.505;
-				background-color: #fefeff;
-				text-rendering: optimizeLegibility;
-			}
-
-			h1, h2, h3, h4, h5, h6, p, body, a, img, ul, ol, blockquote, pre {
-				margin: 0; padding: 0; border: 0;
-			}
-
-			h1,h2,h3,h4 { 
-				font-family: â€˜Palatino Linotypeâ€™, â€˜Book Antiquaâ€™, Palatino, serif; 
-			}
-
-			.content-wrap {
-				width: 34em;
-				margin: 0 auto;
-			}
-
-			body, a {
-				color: #171717;
-			}
-
-			a:hover {
-				color: #8080ff;
-				text-decoration: underline;
-			}
-
-			p {
-				margin-bottom: 1.52em;
-			}
-
-			pre, textarea {
-				font-size: 0.7em;
-				overflow: auto;
-				background: #fff;
-				border: 1px dashed #d2d2d2;
-				border-radius: 0.25em;
-				margin-bottom: 1.8em;
-				padding: 1em;
-				margin: 1em;
-			}
-
-			h1 {
-				font-size: 2em;
-				margin-bottom: 1em;
-			}
-
-			h2 {
-				font-size: 1.2em;
-				font-weight: 400;
-				line-height: 1.43;
-				margin-bottom: 1.35em;
-			}
-
-			h3 {
-				font-style: italic;
-				text-align: center;
-				font-weight: 400;
-				font-size: 1.4em;
-				margin-top: 1.8em;
-				margin-bottom: 0.8em;
-			}
-
-			ol, ul {
-				margin: 0 1.4em 1.4em 4em;
-			}
-
-			li {
-				margin-bottom: 0.5em;
-			}
-
-			blockquote {
-				margin: 1.2em 3em;
-				padding-left: 1em;
-				font-style: italic;
-			}
-
-			hr {
-				border: 0;
-				border-top: 1px dashed #d2d2d2;
-				height: 0;
-				margin: 1.6em 0;
-			}
-
-			/* page header */
-
-			hr.bow {
-				width:100%;
-				height:0.1em;
-				margin:0;
-				border:0;
-			}
-
-			.red {
-				background-color:#ff505f;
-			}
-
-			.yellow {
-				background-color:#f5f05f;
-			}
-
-			.viored {
-				background-color:#f50f5f;
-			}
-
-			.violet {
-				background-color:#f505ff;
-			}
-
-			.blue {
-				background-color:#505fff;
-			}
-
-			.sky {
-				background-color:#55ccff;
-			}
-
-			.header {
-				margin: 0;
-				border-bottom:1px solid #ccc;
-				width:100%;
-				background-color:#55ccff;
-			}
-
-			.header h1 {
-				font-size: 1em;
-				text-align: left;
-				font-weight: 700;
-				margin:0;
-			}
-
-			.header h2 {
-				font-size: 0.8em;
-				font-weight: normal;
-				text-align:left;
-				margin:0;
-				float:right;
-				margin-top:-1.6em;
-			}
-
-			.header a, .header a:hover {
-				text-decoration: none;
-				color: #171717;
-			}
-
-			.header .author {
-				font-family: â€˜Palatino Linotypeâ€™, â€˜Book Antiquaâ€™, Palatino, serif;
-				text-rendering: auto;
-				text-align: left;
-				font-weight: 400;
-				letter-spacing: 1px;
-			}
-
-			.header .description {
-				font-size: 1.2em;
-				font-style: italic;
-				text-align: center;
-				margin-top: -0.3em;
-			}
-
-			body.article-detail > header > *:not(.logo) > h1 {
-				font-size: 2.5em;
-				font-style: italic;
-				font-weight: 400;
-				margin-bottom: -0.2em;
-			}
-
-			body.article-detail > header {
-				margin-bottom: 3em;
-			}
-
-			body.article-detail .logo {
-				border:0;
-				margin-bottom:3em;
-			}
-
-			.thai {
-				color:#505fff;
-			}
-
-			.calendaryear {
-				font-size: 1.6em;
-				width:100px;
-			}
-
-			/* page footer */
-
-			footer {
-				margin: 3em 0;
-			}
-
-			footer .nav {
-				text-align: center;
-				margin-top: 5em;
-				margin-bottom: 3.5em;
-			}
-
-			footer .nav a {
-				padding: 0 0.5em;
-				font-size: 1.2em;
-				text-decoration: none;
-			}
-
-			footer .about {
-				border-top: 1px dashed #d2d2d2;
-				padding: 2.2em 3em;
-				font-size: 0.7em;
-				-webkit-column-count: 3;
-				-moz-column-count: 3;
-				-ms-column-count: 3;
-				column-count: 3;
-				-webkit-column-gap: 2em;
-				-moz-column-gap: 2em;
-				-ms-column-gap: 2em;
-				column-gap: 2em;
-			}
-
-			footer .copy {
-				text-align: center;
-				font-size: 0.7em;
-				font-style: italic;
-				margin-top: 1em;
-			}
-
-			footer .copy, footer .copy a {
-				color: #8e8e8e;
-			}
-
-			/* article */
-
-			.article {
-				margin: 3em 0 4em;
-			}
-
-			.article header {
-				border-top: 1px dashed #d2d2d2;
-			}
-
-			.article header h2 {
-				font-style: italic;
-				text-align: center;
-				font-weight: 400;
-				margin: 0.8em 0;
-				font-size: 1.4em;
-			}
-
-			.article header h2 a {
-				text-decoration: none;
-			}
-
-			.article header .date {
-				text-align: center;
-				font-size: 0.8em;
-				margin-top: -0.7em;
-			}
-
-			.article header .date span {
-				background-color: #fdfdff;
-				padding: 0 0.7em;
-			}
-
-			.article.intro .content p {
-				display: inline;
-			}
-
-			.article.intro .content .more {
-				text-decoration: underline;
-				font-weight: 700;
-				padding-left: 0.3em;
-			}
-
-			.article .content img {
-				display: block;
-				width: 100%;
-			}
-
-			.more, .date {
-				font-family: â€˜Palatino Linotypeâ€™, â€˜Book Antiquaâ€™, Palatino, serif;
-				font-variant: small-caps;
-				text-transform: lowercase;
-				font-weight: 400;
-				text-rendering: auto;
-				letter-spacing: 1px;
-			}
-
-			.author .date {
-				font-size: 0.85em;
-			}
-
-			/* archive */
-
-			.archive {
-				width: 32em;
-				margin: 5em auto 6em;
-				padding-left: 2em;
-			}
-
-			.archive h2 {
-				font-size: 2em;
-				margin: 0;
-				margin-left: 6.1em;
-				margin-bottom: 0.5em;
-				font-style: italic;
-			}
-
-			.archive a, .archive span{
-				display: block;
-				float: left;
-				margin-bottom: -1px;
-				text-decoration: none;
-			}
-			.archive li:not(:last-child) {
-				border-bottom: 1px solid #d2d2d2;
-				margin-bottom: -1px;
-			}
-
-			.archive a.last, .archive span.last {
-				border: 0;
-				margin-bottom: 0;
-			}
-
-			.archive a {
-				width: 21em;
-				text-indent: 1em;
-				white-space: nowrap;
-			}
-
-			.archive .year-label,
-			.archive .month-label{
-				width: 4em;
-				font-family: â€˜Palatino Linotypeâ€™, â€˜Book Antiquaâ€™, Palatino, serif;
-				font-variant: small-caps;
-				text-transform: lowercase;
-				font-weight: 400;
-				text-rendering: auto;
-				letter-spacing: 1px;
-				text-align: center;
-			}
-
-			.archive .month-label {
-				width: 7em;
-			}
-
-			.archive ul {
-				list-style: none;
-				margin: 0;
-			}
-
-			.archive ul li {
-				margin: 0;
-			}
-
-			/* code styling */
-
-			code {
-				font-family: 'Anonymous Pro', monospace;
-				font-size: 0.85em;
-				color: #000;
-			}
-
-			pre code {
-				display: block;
-				line-height: 1.1;
-			}
-
-			p code {
-				padding: 0.1em 0.3em 0.2em;
-				border-radius: 0.3em;
-				position: relative;
-				background: #fffff3;
-
-				white-space: nowrap;
-			}
-
-			/* syntax hl stuff */
-
-			code.lang-markdown {
-				color: #424242;
-			}
-
-			code.lang-markdown .header,
-			code.lang-markdown .strong {
-				font-weight: bold;
-			}
-
-			code.lang-markdown .emphasis {
-				font-style: italic;
-			}
-
-			code.lang-markdown .horizontal_rule,
-			code.lang-markdown .link_label,
-			code.lang-markdown .code,
-			code.lang-markdown .header,
-			code.lang-markdown .link_url {
-				color: #555;
-			}
-
-			code.lang-markdown .blockquote,
-			code.lang-markdown .bullet {
-				color: #bbb;
-			}
-
-			/* Tomorrow Theme */
-			/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-			/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-			/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-			.tomorrow-comment, pre .comment, pre .title {
-				color: #8e908c;
-			}
-
-			.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
-				color: #c82829;
-			}
-
-			.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
-				color: #f5871f;
-			}
-
-			.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
-				color: #eab700;
-			}
-
-			.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
-				color: #718c00;
-			}
-
-			.tomorrow-aqua, pre .css .hexcolor {
-				color: #3e999f;
-			}
-
-			.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
-				color: #4271ae;
-			}
-
-			.tomorrow-purple, pre .keyword, pre .javascript .function {
-				color: #8959a8;
-			}
-
-			.image-column-left {
-				width:49%!important;
-				display:inline-block!important;
-			}
-
-			.image-column-right {
-				width:49%!important;
-				display:inline-block!important;
-			}
-
-			/* media queries */
-
-			@media (min-width: 1600px) {
-				body { font-size: 26px; }
-			}
-
-			@media (max-width: 900px) {
-				body { font-size: 18px; }
-			}
-
-			@media (max-width: 690px) {
-
-				.content-wrap {
-				  width: auto;
-				  padding: 0 0.3em;
-				}
-				.article {
-				  margin: 1em 0 2.5em;
-				}
-				.archive {
-				  width: 80%;
-				  margin: 0 auto;
-				}
-				.archive * {
-				  float: none !important;
-				  line-height: 1.6 !important;
-				  width: auto !important;
-				  height: auto !important;
-				  text-align: left !important;
-				  border: 0 !important;
-				  margin: 0 !important;
-				}
-				footer .nav {
-				  margin: 1em 0;
-				}
-				footer .about {
-				  padding: 0;
-				  font-size: 0.9em;
-				  padding-top: 1.6em;
-				  -webkit-column-count: 1;
-				  -moz-column-count: 1;
-				  -ms-column-count: 1;
-				  column-count: 1;
-				}
-				footer .about p {
-				  margin-bottom: 1em;
-				}
-			}
-
-			@media (max-width: 500px) {
-
-				.header h1 {
-				  text-align:center;
-				  margin-bottom:0.4em;
-				}
-
-				.header h2 {
-				  float:none;
-				  margin:0;
-				  text-align:center;
-				  margin-bottom:0.4em;
-				}
-				.header .author {
-				  text-align:center;
-				}
-
-				.image-column-left {
-				  width:100%!important;
-				  display:block!important;
-				  margin-bottom:0.5em;
-				}
-				.image-column-right {
-				  width:100%!important;
-				  display:block!important;
-				  margin-bottom:0em;
-				}
-			}
-
-			.container {font-family: monospace; width:40%; display:inline-block; margin:1em; vertical-align: top;}
-			#source { font-family: monospace; width:100%; }
-			#target { font-family: monospace; width:100%; }
-		</style>
-
-	</head>
-
-	<body>
-
-    <header class="header">
-      <div class="content-wrap">
-        <div class="logo">
-        	<!--
-          <h1 class="author"><a href="/">Max Irwin</a></h1>
-          <h2>code + art + philosophy</h2>
-      -->
-			<h1><a href="https://github.com/binarymax/restlang">Restlang</a></h1>
-			<h2>Interactive parser</h2>
-        </div>
-      </div>
-      <hr class="bow sky">
-      <hr class="bow blue">
-      <hr class="bow viored">
-      <hr class="bow red">
-      <hr class="bow yellow">
-    </header>
-
-		<div class="container">
-			<select id="code" value="helloworld">
-				<option id="chelloworld" value="helloworld"  data-src="sources/helloworld.api" selected="selected">Hello World</option>
-				<option id="ctodo" value="todo" data-src="sources/todo.api">Todo List API</option>
-			</select>
-			<textarea id="source" rows=40>
-/helloworld
-
-This API returns a 'Hello World' message!
-
-There is only one method: GET.  Any other method wont get a response.
-
-	#Get
-
-		This method returns 'Hello World'.
-
-		|text string:The text that holds the message
-
-			</textarea>
-		</div>
-
-		<div class="container">
-			<select id="type" value="json">
-				<option id="ojson" value="json" selected="selected">JSON</option>
-				<option id="oheimdall" value="heimdall" data-src="targets/heimdall.template.js">heimdall</option>
-				<option id="oragnarok" value="ragnarok" data-src="targets/ragnarok.template.js">ragnarok</option>
-				<!-- <option id="ojquery" value="jquery">jquery</option> -->
-				<!-- <option id="ohtml" value="html">html</option> -->
-			</select>
-			<pre id="target"></pre>
-		</div>
-
-		<script src="parser.js"></script>
-
-		<script src="tools.js"></script>
-
-		<script src="//cdnjs.cloudflare.com/ajax/libs/min.js/0.2.3/$.min.js"></script>
-
-		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-
-		<script type="text/javascript">
-
-			(function() {
-				"use strict";
-
-				var parsed = {};
-				var source = $('#source');
-				var target = $('#target');
-				var code = $("#code");
-				var type = $("#type");
-
-				var templates = {};
-				var sources = {};
-				var template = null;
-				var example = null;
-				var typeid = 'json';
-				var codeid = 'sources/helloworld.api';
-
-				var generate = function() {
-					if(typeid==='json') {
-						target.innerHTML = JSON.stringify(parsed,undefined,2);
-					} else {
-						target.innerHTML = template({api:parsed});
+		<!-- =================================================== -->
+
+		<section class="text">
+
+			<hr>
+
+			<article>
+
+			Welcome!  You will find here a growing collection of digital experiences and content by Max Irwin.  All code on this site is lovingly handcrafted by yours truly.  If you like what you see here and would like to get in touch, you can contact me on twitter <a href="https://twitter.com/binarymax">@binarymax</a>.
+
+			</article>
+
+		</section>
+
+		<section id="apps" class="section">
+
+			<header>
+				<h2 class="section-header">APPLICATIONS</h2>
+			</header>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Kriegspiel</h3>
+				</header>
+				<div>
+					<img src="/thumbs/krgspl_300.png" class="card-thumb"></img>
+					<a href="http://krgspl.com" class="card-link">krgspl.com</a>
+					<p class="card-text">
+						A web-playable version of the classic chess variant.  Like chess, in order to play, you need two players for a game.  In-depth rules and guide are available on the site.  The entire game was built as a side project over 4 months time, and is fully open source under the MIT License.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Anagramica</h3>
+				</header>
+				<div>
+					<img src="/thumbs/anagramica_300.png" class="card-thumb"></img>
+					<a href="http://anagramica.com" class="card-link">anagramica.com</a>
+					<p class="card-text">
+						A single player anagram game, inspired by the British game show 'Countdown'.  The entire game was built as a side project over a week, and is playable on desktop and tablet devices.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Shape Experiment</h3>
+				</header>
+				<div>
+					<img src="/thumbs/shapex_300.png" class="card-thumb"></img>
+					<a href="http://shapex.org" class="card-link">shapex.org</a>
+					<p class="card-text">
+						A single player shape identification game for mobile devices (and also browsers). An exercise in interface and minimalism and intuition, to be quickly understandable and playable by anyone.  The game was written in a single day, and tens of thousands of shapes have been identified since release.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">DonaldIrwin.com</h3>
+				</header>
+				<div>
+					<img src="/thumbs/daey_300.png" class="card-thumb"></img>
+					<a href="http://donaldirwin.com" class="card-link">donaldirwin.com</a>
+					<p class="card-text">
+						A collection of my Father's Kaballah inspired works of art.  After his passing, my siblings and I gathered this small selection from his much larger volume of artwork to display on the web.
+					</p>
+				</div>
+				</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Bashfill</h3>
+				</header>
+				<div>
+					<img src="/thumbs/bashfill_300.png" class="card-thumb"></img>
+					<a href="http://max.io/bash.html" class="card-link">max.io/bash.html</a>
+					<p class="card-text">
+						A tool to draw 7-color 80x20 artworks that can be exported as a bash script to display in a *nix terminal.  Useful for creating graphics that identify servers upon connection, or just for fun.  Images can be shared as easily as links.  Here is the image in the <a href="http://max.io/bash.html?zip=YjQwZTFiMXgzOWUxYjF4MzllMWIxeDM5ZTFiMXgzOWUxYjF4MzllMWIxeDF3NHgzNGUxYjF4MXcxcjJ3MXgzNGUxYjF4MXcxeDJ3MXgzNGUxYjF4MXcxeDJ3MXgydzF4MXcxeDV3NXgxdzF4NHcxeDN3MXg4ZTFiMXgxdzF4MncxeDJ3MXgxdzV4MXI0dzF4MXc0eDF3MXgzdzF4OGUxYjF4MXc0eDJ3MXgxdzV4NXcxeDF3MXIydzF4MXc1eDhlMWIxeDF3NXgxdzF4MXcxcjN3MXgxdzV4MXcxeDRyNHcxeDhlMWIxeDF3MXIzdzF4MXcxeDF3MXgzdzF4MXc1eDF3MXg4dzF4OGUxYjF4MXcxeDN3MXgxdzF4MXcxeDN3MXgxdzFyM3cxeDF3MWI4dzFiNngyZTFiMncxYjN3MWIxdzFiMXcxYjN3MWIxdzFiM3cxYjF3MWI4dzFiOGUxYjJ3M2IxdzFiMXcxYjF3MWIzdzFiMXcxYjN3MWIxdzFiOHcxYjhlMWIydzViMXcxYjF3MWIzdzFiMXc1YjF3MWI0dzViOGUxYjJyNWIxcjFiMXIxYjNyMWIxcjViMXIxYjRyNWI4ZTFiNDBlMWI0MGUxYjQwZTFiNDA=">thumbnail</a> which I quickly drew for this card.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Backgammon.js</h3>
+				</header>
+				<div>
+					<img src="/thumbs/backgammon_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/backgammon/" class="card-link">/backgammon/</a>
+					<p class="card-text">
+						A fully functional open source Backgammon engine, UI, and basic AI written in JavaScript and HTML5.  Highly compact and efficient, the linked demonstration page runs 24 self-playing games simultaneously.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Paint.io</h3>
+				</header>
+				<div>
+					<img src="/thumbs/paint_300.png" class="card-thumb"></img>
+					<a href="http://paint.io" class="card-link">http://paint.io</a>
+					<p class="card-text">
+						A basic HTML5 drawing tool. While the site is live the tool is no longer under development.  Eventually the domain will house the in-development Palettable sprite illustration app.
+					</p>
+				</div>
+			</article>
+
+		</section>
+
+		<!-- =================================================== -->
+
+		<section id="demos" class="section">
+
+			<header>
+				<h2 class="section-header">DEMONSTRATIONS</h2>
+			</header>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Dilated Age of Information</h3>
+				</header>
+				<div>
+					<img src="/thumbs/dilated_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/dilated_age_of_information.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						A commission for an art show 'Conflicts In Time'. The piece shows a color map representation of the time dilation difference for a ping between the observer and the server.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Palette Extractor</h3>
+				</header>
+				<div>
+					<img src="/thumbs/palettex_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/palette/palette.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						A tool to extract nice-looking palettes from arbitrary images.  A set of MegaMan II images are used to demonstrate the algorithm.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">jsCube</h3>
+				</header>
+				<div>
+					<img src="/thumbs/jscube_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/cube.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						An experiment in data cube structures in javascript, used to efficiently calculate aggregate results of an arbitrary dataset of several dimensions.  Two structures are shown, each one having pros and cons, depending on use case.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Reality Remix</h3>
+				</header>
+				<div>
+					<img src="/thumbs/realityremix_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/reality_remix.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						A video remix experiment, with a resulting video run through a custom filter coded in C#.  The filter splits a video into frames, remixes the frame using a bitwise Sierpinski carpet algorithm, and stiches the frames back together.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Square Chase</h3>
+				</header>
+				<div>
+					<img src="/thumbs/squarechase_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/square_chase.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						My javascript entry into the first JS1k competition, with a concept based on a video game I wrote in Pascal in 1995.  The demo consists of 4 squares of different colors that leave trails as they flee from the observer's mouse.  Clicking a square increments the score by one and the square respawns. The demo is 1024 bytes of hand-golfed javascript.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Tree Generator</h3>
+				</header>
+				<div>
+					<img src="/thumbs/trees_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/tree.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						An interactive art project that creates a genetic tree starting from a single seed of observer-defined parameters.  The observer can specify trunk size, branch count, leaf size, growth rate, and other parameters.  Each generated tree is unique.  The piece was displayed as an installation at a show, and participants ordered their printed trees on A3 paper.  The resulting image is SVG and can be printed to keep pure vector resolution.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Randriaan</h3>
+				</header>
+				<div>
+					<img src="/thumbs/randriaan_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/randriaan.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						My Entry into the 2013 Victory Boogie Woogie code competition. Artists were asked to recreate the last work of Piet Mondriaan in Utrect Netherlands.  The piece uses a genetic algorithm to slowly recreate the box-like work with circles, lines, or squares. The longer the algorithm runs, the greater the likeness.  The resulting image is SVG and can be printed to keep pure vector resolution.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">RayTrace</h3>
+				</header>
+				<div>
+					<img src="/thumbs/raytrace_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/raytrace.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						An early canvas experiment, renders a raytrace of an observer-defined number of spheres of random size and color.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">tRand</h3>
+				</header>
+				<div>
+					<img src="/thumbs/trand_300.png" class="card-thumb"></img>
+					<a href="http://binarymax.com/tRand.html" class="card-link">Link to Demo</a>
+					<p class="card-text">
+						An experiment which used the Twitter stream API as entropy for randomness to generate a brownian motion image.  The resulting images are beautiful and discerning clumps of information.  The applicaton no longer works, due to restrictions Twitter placed on its public API, but a screenshot and the code remains for archival purposes.
+					</p>
+				</div>
+			</article>			
+
+		</section>
+
+		<!-- =================================================== -->	
+		
+		<section id="posts" class="section">
+
+			<header>
+				<h2 class="section-header">WRITINGS</h2>
+			</header>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Hidden Shapes</h3>
+				</header>
+				<div>
+					<img src="/thumbs/maxio_300.png" class="card-thumb"></img>
+					<a href="http://max.io/hidden-shapes/" class="card-link" target="_blank">Link to Post</a>
+					<p class="card-text">
+						I am slowly working on a side-project that makes a video into a mishmash of circles for each frame. I have an early version running, that manually takes a video, splits it into frames, remixes each frame into the circle mishmash, and recomposes the video with the new remixed frames. The project is called 'Harissa'. <a href="http://max.io/hidden-shapes/">read more</a>
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Artificial Expression</h3>
+				</header>
+				<div>
+					<img src="/thumbs/maxio_300.png" class="card-thumb"></img>
+					<a href="http://max.io/theories-on-artificial-expression/" class="card-link" target="_blank">Link to Post</a>
+					<p class="card-text">
+						Artificial Expression(AE) draws a parallel to Artificial Intelligence(AI), in that an artificially expressive program will display sentience relating to creating original subjective aesthetics. I explore the ideas behind these complexities, as well as techniques in use today to generate art, and set a standard to use in deciding whether a work is an artificial expression. <a href="http://max.io/theories-on-artificial-expression/">read more</a>
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Anagramica is now FOSS</h3>
+				</header>
+				<div>
+					<img src="/thumbs/maxio_300.png" class="card-thumb"></img>
+					<a href="http://max.io/anagramica-is-now-foss/" class="card-link" target="_blank">Link to Post</a>
+					<p class="card-text">
+						I'm not entirely sure why I never open sourced it in the first place. After 25 years of coding I've only recently become active in opening my code for others to see and use. I have a cathartic story to tell about a previous project, which I've never told anyone about, and silently open sourced this past winter. <a href="http://max.io/anagramica-is-now-foss/">read more</a>
+					</p>
+				</div>
+			</article>		
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">The Idea is Art</h3>
+				</header>
+				<div>
+					<img src="/thumbs/maxio_300.png" class="card-thumb"></img>
+					<a href="http://max.io/the-idea-is-art/" class="card-link" target="_blank">Link to Post</a>
+					<p class="card-text">
+						'What is art' has been debated ad infinitum, and some like to draw the line and say something is not art if it cannot be expressed - as art is, by definition, expression. My argument is that one not even need express the idea outwards with our own voice, hands, or otherwise. The idea can exist purely in one's own mind and still be a work of art. It is expression to oneself, therefore it is art. <a href="http://max.io/the-idea-is-art/">read more</a>
+					</p>
+				</div>
+			</article>	
+
+		</section>
+
+		<!-- =================================================== -->
+
+		<section id="repos" class="section">
+
+			<header>
+				<h2 class="section-header">REPOS</h2>
+			</header>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Github</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax" class="card-link" target="_blank">Link to Profile</a>
+					<p class="card-text">
+						A good deal of my work is available as Open Source on Github.  Much of it is available under MIT license.  If you have any questions regarding any package or repository, or would like to contribute, please get in touch!  A curated selection of some of my projects on github are summarized in the other cards in this section.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Restlang</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/restlang" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						A cross-compiling DSL (domain specific language) for building APIs.  Restlang is a markdown-inspired language that is used to generate server route specifications, client libraries, testing scripts, and developer documentation for web based APIs.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Heimdall</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/heimdall" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						Heimdall is a type-safe, documentation oriented, and security minded API library for Express.  The goal of Heimdall is to provide an easy way to create reflective and secure REST resources, to enforce documentation standards, to separate req/res from the MVC pattern, and to ensure all incoming and outgoing data is registered, validated, documented, and tested. 
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Datatype</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/datatype" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						Datatype validation, casting, and documentation library for node.js.  Originally written as part of Heimdall, it was split out into its own package to be used independently.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Harissa</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/harissa" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						An experimental video-filter GUI and Algorithm for the browser.  'Probably the most inneficient way to remix video'
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Palettable</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/palettable" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						An experimental frame sprite editing suite for the browser.  Meant to allow easy pixel style sprite illustrations and animations for use in games, gifs, and other media.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">Seurat</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/seurat" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						A better working algorithm and library derived from my work on Randriaan, meant to be suitable for any photo.  The same algorithm is used to filter frames for Harissa.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">LeverPulley</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/leverpulley" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						A javascript library for plug-and-play hoisting of data and functions into webworkers, for multithreaded browser execution.
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">asm2d</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://github.com/binarymax/asm2d" class="card-link" target="_blank">Link to Repo</a>
+					<p class="card-text">
+						Playground and benchmarks for hand-coded 2d graphics in asm.js.  Written to test the feasibility of outsourcing entire graphics jobs to a pixel manipulating engine, by rewriting fundamental canvas API methods such as arc and line.  The short answer: faster than canvas in FireFox, slower in Chrome (as of November 2014).
+					</p>
+				</div>
+			</article>
+
+			<article class="card">
+				<header>
+					<h3 class="card-header">npm</h3>
+				</header>
+				<div>
+					<img src="/thumbs/github_300.png" class="card-thumb"></img>
+					<a href="https://www.npmjs.org/~binarymax" class="card-link" target="_blank">npmjs.org</a>
+					<p class="card-text">
+						On npmjs.org you will find a list of node.js packages I have made available for installation.  If you have any questions about any of them or would like to contribute, please get in touch!
+					</p>
+				</div>
+						
+			</article>
+
+		</section>
+
+		<!-- =================================================== -->
+
+		<footer>
+
+			&copy;Copyright 2014, Max Irwin. Please do unto others as you would have them do unto you.
+
+			<noscript>
+				<h2>Hello Non-JavaScripter!</h2>
+				<p>
+					A friendly note: many of the experiments and links shown above require javascript, and will likely not work unless javascript is enabled.
+				</p>
+				<link rel="stylesheet" href="binarymax-noscript.css" />
+			</noscript>
+
+		</footer>
+
+	</div>
+
+	<script language="javascript" type="text/javascript">
+
+		var binarymax = window.binarymax = {};
+		binarymax.circus=(function(){
+			"use strict";
+
+			var head = document.getElementById("head");
+			var logo = document.getElementById("logo");
+			var anim = document.getElementById("anim");
+			var cont = anim.getContext('2d');
+			var back = "";
+
+			var dim = 75;
+			anim.width = dim;
+			anim.height = dim;
+			 
+			var imgd = cont.createImageData(dim,dim);
+
+			var memo = [dim*dim];
+			var frms = [];
+
+			var load = function() {
+				logo.onclick = S;
+				for(var x=0;x<dim;x++){
+					for(var y=0;y<dim;y++){
+						var offset=(x+y*dim)*4;
+						memo[offset] = {
+							r:parseInt((x^y)),
+							g:parseInt((x|y)),
+							b:parseInt((x&y))
+						};
 					}
-				};
+				}
 
-				//XHR adapted from https://github.com/remy/libraries/blob/master/xhr.js
-				function get(url, callback) {
-					var xhr = new XMLHttpRequest();
-					xhr.open('GET', url);
-					xhr.setRequestHeader('Content-Type', 'text/plain');
-					xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.onload = function () { callback.call(xhr, null, xhr.response); };
-					xhr.onerror = function () { callback.call(xhr, true); };
-					xhr.send();
-					return xhr;
-				};
+				for(var z=0;z<dim;z++) {
+					drawImage(z);
+				}
 
-				var sourceChange = function() { 
-					parsed = restlang(source.value);
-					generate();
-				};
+				setInterval(animate,120);
 
-				var codeChange = function() {
-					var id = codeid = code.value;
-					var option = $("#c"+id);
-					var src = option.getAttribute("data-src");
-					if (sources[id]) {
-						example = sources[id];
-						source.value = example;
-						sourceChange();
-					} else {
-						get(src,function(err,response){
-							example = sources[id] = response;
-							source.value = example;
-							sourceChange();
-						});
+			};
+
+			var drawImage = function (z) {
+				var pix = imgd.data;
+				for(var x=0;x<dim;x++) {
+					for(var y=0;y<dim;y++) {
+						var offset=(x+y*dim)*4;
+						pix[offset+0]=(memo[offset].r * z)%255;
+						pix[offset+1]=(memo[offset].g * z)%255;
+						pix[offset+2]=(memo[offset].b * z)%255;
+						pix[offset+3]=255;
 					}
-				};
+				}
+				cont.putImageData(imgd, 0,0);
+				back = anim.toDataURL();
+				frms.push('url('+back+')');
+			};
 
-				var targetChange = function() {
-					var id = typeid = type.value;
-					var option = $("#o"+id);
-					var src = option.getAttribute("data-src");
-					if (src) {
-						if (templates[id]) {
-							template = templates[id];
-							generate();
-						} else {
-							get(src,function(err,response){
-								template = templates[id] = _.template(response);
-								generate();
-							});
-						}
-					} else {
-						typeid='json';
-						generate();
-					}
-				};
+			var frm = 0, dir = 1;
+			var animate = function(){
+				logo.style.backgroundImage=frms[frm];
+				frm += dir;
+				if(frm === dim) dir = -1;
+				if(frm === 0)   dir = 1;
+			};
 
-				source.on("keyup",sourceChange);
-				code.on("change",codeChange);
-				type.on("change",targetChange);
+			var B = 1;
+			var S = function(){
+				B = B^1;
+				logo.src='http://binarymax.com/images/binarymax_orange'+B+'.png';
+			}
 
-				sourceChange();
-			})();
-		</script>
+			load();
 
-	</body>
+		})();
 
-</html>
+	</script>
+
+
+<script language="javascript" type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+
+</body>
+</html>	

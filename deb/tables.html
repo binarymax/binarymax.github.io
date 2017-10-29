@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example</title>
+    <meta charset="utf-8" />
+	<meta name="Author" content="Deborah Bowness, Monfish Web Design, Active Method, Ltd" />
+	<meta name="Keywords" content="Wallpaper..." />
+	<meta name="Description" content="Wallpaper By Deb Bowness" />
+
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="shortcut icon" href="./images/favicon.ico">
+
+	<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="./javascript/jquery.imageparallax.js"></script>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+
+			var layers = new Array();
+			layers[0] = "./images/parallax/blank.gif";
+			//layers[1] = "./images/parallax/ladder.jpg";
+			layers[1] = "./images/parallax/scene1.jpg";
+			layers[2] = "./images/parallax/table1.gif";
+			layers[3] = "./images/parallax/stool1.gif";
+			layers[4] = "./images/parallax/stool2.gif";
+			$("#scene").imageparallax({ images: layers, allowVertical: false });
+
+		});
+	</script>
+
+  </head>
+  <body>
+  	<div id="nav">
+  		<h1>WALLPAPER</h1>
+  		<h2>by Deborah Bowness</h2>
+  		<ul>
+  			<li>shop</li>
+  			<li>about</li>
+  		</ul>
+  	</div>
+  	<div id="loading">
+  		...L O A D I N G...
+  	</div>
+	<img src="./images/parallax/blank.gif" alt="Image Parallax" id="scene" width="110%" height="110%" />
+  </body>
+</html>
