@@ -48,7 +48,7 @@ h1,h2,h3,h4 {
 
 /* Sections */
 .section {
-	text-align:left;
+	text-align:center;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:5px; 
@@ -57,7 +57,7 @@ h1,h2,h3,h4 {
 	padding-bottom:5px;
 	max-width:973px;
 	min-width:320px;
-	background-color:#fff;
+	/* background-color:#fff; */
 }
 .section-header {
 	text-align:center;
@@ -75,9 +75,10 @@ h1,h2,h3,h4 {
 
 /* Cards */
 .card {
-	width:300px;
-	height:300px;
-	margin:10px;
+	text-align:left;
+	width:290px;
+	height:290px;
+	margin:14px;
 	margin-bottom:15px;
 	border-radius:3px;
 	padding:3px;
@@ -100,7 +101,11 @@ h1,h2,h3,h4 {
 #apps  > .card { background-color:#fef1f0; }
 #demos > .card { background-color:#f0f1fe; }
 #posts > .card { background-color:#f0fef1; }
-#repos > .card { background-color:#fefaf0; }
+#repos > .card { background-color:#fef1f0 /*#fefaf0;*/ }
+
+.card-header-link {
+	text-decoration: none;
+}
 
 .card-header { 
 	font-size:1.2em;
@@ -108,7 +113,7 @@ h1,h2,h3,h4 {
 	padding:0px;
 	margin: 10px 5px 10px 5px;
 	color:#333;
-	text-shadow: 1px 1px 1px #deaea7;	
+	text-shadow: 1px 1px 1px #deaea7;
 }
 
 .card-link { 
@@ -133,4 +138,7 @@ h1,h2,h3,h4 {
 	box-shadow:0px 1px 2px hsla(0, 0%, 0%, 0.5);
 }
 
+#posts .card-thumb, #repos .card-thumb {
+	display:none;
+}
 
