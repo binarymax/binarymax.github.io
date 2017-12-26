@@ -37,8 +37,7 @@ binarymax.circus=(function(){
 			drawImage(z);
 		}
 
-		setInterval(animate,120);
-
+		requestAnimationFrame(animate);
 	};
 
 	var drawImage = function (z) {
@@ -57,12 +56,17 @@ binarymax.circus=(function(){
 		frms.push('url('+back+')');
 	};
 
-	var frm = 0, dir = 1;
+	var frm = 0, dir = 1, wait = 0;
 	var animate = function(){
-		logo.style.backgroundImage=frms[frm];
-		frm += dir;
+		if(wait==5) {
+			logo.style.backgroundImage=frms[frm];
+			frm += dir;
+			wait=0;
+		}
+		wait++;
 		if(frm === dim) dir = -1;
 		if(frm === 0)   dir = 1;
+		requestAnimationFrame(animate);
 	};
 
 	var B = 1;
