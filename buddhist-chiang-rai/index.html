@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Buddhist Chiang Rai</title>
+
+	<meta charset="utf-8" />
+	
+	<meta property="og:title" content="Buddhist Chiang Rai" />
+	<meta property="og:description" content="Buddhist Chiang Rai" />
+	<meta property="og:image" content="" />
+
+	<meta itemprop="name" content="Buddhist Chiang Rai">
+	<meta itemprop="description" content="Buddhist Chiang Rai">
+	<meta itemprop="image" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="main.css" />
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300' rel='stylesheet' type='text/css'>
+
+	<!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>	
+
+	<script>
+		MB_ATTR = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+		OSM_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		OSM_ATTRIB = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+
+    <style>
+        h3 { font-family: sans-serif;}
+    </style>
+
+</head>
+<body>
+
+    <h3>Buddhist Chiang Rai - <span id="year"></span> Buddhist Era</h3>
+    <div id="map" class="map map-home" style="height:700px;"></div>
+
+<script type="text/javascript" src="temples.js"></script>
+<script>
+
+    //---------------------------------------------
+    //Make-a-the Map!
+    var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    var osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});        
+    var map = L.map('map').setView([19.943952,99.852112], 12).addLayer(osm);
+
+    //---------------------------------------------
+    // Behold!  I am an animator for the map!
+    var Player = function(temples,wind,speed){
+        this.temples = temples;
+        this.wind = wind||1;
+        this.speed = speed||100;
+        this.step = 0;
+        this.minyear =  99999;
+        this.maxyear = -99999;
+    }
+
+    //---------------------------------------------
+    Player.prototype.load = function() {
+        for(var i=0;i<this.temples.length;i++){
+            var lon=this.temples[i]["Longitude"];
+            var lat=this.temples[i]["Latitude"];
+            var year = this.temples[i]["Year Established (BE)"];
+            var englishname = this.temples[i]["Temple Name (English)"];
+            var thainame = this.temples[i]["Temple Name (Thai)"];
+
+            this.minyear = year?Math.min(year,this.minyear):this.minyear;
+            this.maxyear = year?Math.max(year,this.maxyear):this.maxyear;
+
+            if(lon && lat && englishname && thainame) {
+                this.temples[i].year = year;
+                this.temples[i].marker = L.marker([lat,lon])
+                    .addTo(map)
+                    .bindPopup(
+                        [englishname,thainame,year].join('<br>')
+                    )
+                    .setOpacity(0.0);
+            }
+        }
+
+        this.minyear = 2300;
+
+    }
+
+    //---------------------------------------------
+    Player.prototype.show = function(start,end) {
+        //Show temples that were created between start and end years
+        document.getElementById("year").innerText = start;
+        for(var i=0;i<this.temples.length;i++) {
+            if(this.temples[i].marker) {
+                var year = this.temples[i].year;
+                if (start <= year && year <= end) {
+                    this.temples[i].marker.setOpacity(1.0);
+                } else if ((this.temples[i]["Ruins?"]=='Y') && (year < start)) {
+                    var dist = 1.0 - ((start - year)/(this.maxyear - year));
+                    this.temples[i].marker.setOpacity(dist);
+                }
+            }
+        }
+    }
+
+    //---------------------------------------------
+    Player.prototype.next = function() {
+
+        //Calculate the next time interval
+        var mag = (this.step*this.wind);
+        var start = this.minyear+mag;
+        var end = this.minyear+mag+this.wind;
+
+        console.log(start,end,this.step);
+
+        //Advance!
+        this.show(start,end);
+        this.step++;
+
+        if(end>this.maxyear+this.wind) {
+            //cancel!
+            window.clearInterval(this.inv);
+            this.inv = null;
+        }
+    }
+
+    Player.prototype.play = function() {
+        var self = this;
+        this.step = 0;
+        this.inv = window.setInterval(
+            function(){ self.next() },
+            this.speed
+        );
+    }
+
+    //---------------------------------------------
+    var player = new Player(temples,1,50);
+    player.load();
+    player.play();
+    
+
+</script>
+
+
+<div class="footer">
+	<p>&copy; 2020. Maps &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+</body>
+</html>
