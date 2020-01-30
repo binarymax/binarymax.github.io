@@ -1,3 +1,4 @@
+//DATA GATHERED BY ANTHONY IRWIN!  IT TOOK HIM YEARS!
 var temples=[
   {
     "Temple Name (English)": "Wat Pang Lao",
